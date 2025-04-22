@@ -1,0 +1,33 @@
+---
+layout: markdown_page
+title: "Group Direction - Pipeline Security"
+description: "GitLab's Pipeline Security group provides capabilities aligned with ensuring software supply chain security."
+canonical_path: "/direction/software_supply_chain_security/pipeline_security/"
+---
+
+- TOC
+{:toc}
+
+## Pipeline Security
+
+| | |
+| --- | --- |
+| Stage | [Software Supply Chain Security](/direction/software_supply_chain_security/) |
+| Content Last Reviewed | `2025-04-01` |
+| Content Last Updated  | `2025-04-01` |
+
+## Overview
+
+Pipeline Security is a group in the Software Supply Chain Security stage.  There are two categories in the group and details on the direction can be viewed on the following individual category page:
+
+1. [Secrets Management](https://about.gitlab.com/direction/software_supply_chain_security/pipeline_security/secrets_management/)
+1. [Artifact Security](https://about.gitlab.com/direction/software_supply_chain_security/pipeline_security/artifact_security/)
+
+
+## Priorities
+
+| Priority | Name | DRI | Target release |
+| ------ | ------ | ------ | ------ |
+<% data.product_priorities.pipeline_security.priorities.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "@shampton" %>` | `<%= priority.target_release.presence || "TBD" %>` |
+<% end %>

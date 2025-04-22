@@ -1,0 +1,33 @@
+---
+layout: markdown_page
+title: "Group Direction - Authentication"
+description: "Authentication keeps resources secure but accessible."
+---
+
+- TOC
+{:toc}
+
+| Group | **Authentication** |
+| --- | --- |
+| Stage | [Software Supply Chain Security](https://handbook.gitlab.com/handbook/product/categories/#software-supply-chain-security-stage) |
+| Group | [Authentication](https://handbook.gitlab.com/handbook/product/categories/#authentication-group) |
+| Content Last Reviewed | `2025-04-02` |
+
+
+<%= partial("direction/software_supply_chain_security/authentication/templates/intro") %>
+
+## Overview
+
+<%= partial("direction/software_supply_chain_security/authentication/templates/overview") %>
+
+### Target audience and experience
+
+<%= partial("direction/software_supply_chain_security/authentication/templates/target") %>
+
+## Priorities
+
+| Item | Name | DRI | Target Release | 
+| ------ | ------ | ------ | ------ |
+<% data.product_priorities.authentication.priorities.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>

@@ -1,0 +1,44 @@
+---
+layout: markdown_page
+title: "AI Evaluation Metrics"
+description: "What metrics GitLab uses to evaluate models"
+---
+
+## Validation Metrics
+
+The foundation of the Centralized Evaluation Framework is based upon three main elements: a prompt library, an established ground truth, and validation metrics. Validation metrics provide a basis upon which to assess the accuracy and usefulness of Generative AI outputs against ground truth. The Centralized Evaluation Framework incorporates various validation metrics, to include but not limited to similarity score, cross similarity score, and LLM evaluator scores such as LLM consensus filtering and LLM judges. The combined output of use-case specific metrics serve as a proxy for production and mimic human judgment in accepting or rejecting AI-generated content.
+
+### Similarity Scores
+
+Similarity scores are used to compare a block of AI generated text against a block of ground truth text. This ground truth may be static, or may be the dynamic output of an LLM with known good answers in a specific domain. The output to be tested and the ground truth are both converted into a numerical representation using embeddings. Embeddings are vector representations of words or sentences in a high-dimensional space, where semantically similar texts are closer together in this space. To calculate the embedding of each block, we use Vertex AI’s text-embedding-gecko model. The similarity score is then calculated using the dot product of the two embeddings.
+
+![Semantic Similarity](/images/direction/data-science/semantic_similarity.png)
+
+While the similarity score is a good indicator of quality in general, it suffers from the partial matching problem. The similarity score can only measure similarity by treating the block of text as a whole. It will therefore return a low score when the length of the two blocks differs significantly. In other words, when the two blocks of text match partially, the similarity score will be low. Because of this, similarity scores can be misleading in cases where partial matches may still be high quality. Some examples of this from the code suggestion use case include:
+* The suggested code successfully matches the remaining of the function, but carry on to suggest a new function. In this case, we should still consider the suggestion "high quality". 
+* The suggested code is shorter than the developer's written code, but the suggested content is a near-perfect match. The suggestion may be short for many reasons, such as model output token limits or because the developer-written code contains a lot of logging or comments.
+* The suggested code is shorter than the developer written code, but the developer written code is longer only because there is some logging, printing or comments in between actual functional code. The functional code is a near-perfect match.
+
+### Cross Similarity Score
+
+The cross similarity score is a metric that we use to overcome the aforementioned partial matching problem, allowing us to better evaluate text produced by GenAI in multiple use cases. The cross similarity score is based upon a cross similarity matrix, which compares element pairs across two outputs and quantifies the similarity or dissimilarity of each element. A matrix is then constructed, with rows and columns used to represent the relationship and similarity score of each element in one output to each element in another output. The scores are then aggregated to obtain a single score that represents the overall similarity between two outputs.
+
+![cross similarity score.png](/images/direction/data-science/cross_similarity_score.png)
+
+### LLM Judge
+
+Another metric we employ is an LLM Judge.  This metric is useful in assessing specific criteria, such as the relevance of a response to a question. In this instance, one LLM (the LLM Judge) is asked to rate the response of the LLM being evaluted in response to a series of prompts. Those responses are then scored by the LLM Judge for specific criteria, such as correctness, comprehensiveness, and readability. To lend greater credibility to the scores, we ask multple LLMs to serve as the judge. The LLM Judges are chosen based on their strong language comprehension capabilities.
+
+
+### Consensus Filtering with LLM Judge
+
+A slight variation on the above metric we employ is consensus filtering with an LLM Judge.  In juxtaposition to the above, consensus filtering with an LLM Judge compares the output of multiple LLMs to set of prompts. The output for all the LLMs are then put into a single prompt. The LLM Judge the compares the different responses and scores each response with full context of the range of possible answers.
+
+![LLM judge.png](/images/direction/data-science/LLM_judge.png)
+
+<p align="center">
+    <i><br>
+    Last Reviewed: 2024-10-05<br>
+    Last Updated: 2024-10-05
+    </i>
+</p>

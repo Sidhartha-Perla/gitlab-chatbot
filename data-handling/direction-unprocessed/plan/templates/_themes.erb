@@ -1,0 +1,84 @@
+### Enterprise planning frameworks support
+
+As examples, GitLab will provide:
+* Out of the box functionality that allows DevSecOps teams to follow Scrum, Kanban, and Requirements-based development processes.
+   * Work Items that represent discrete units of work and are typically used by single teams. Today we use Issues to represent work but we plan to [standardize on an underlying common model](https://docs.gitlab.com/ee/development/work_items.html) and introduce more work item types. Examples of team work items types are Stories, Bugs, and Requirements.
+   * Views to facilitate Plan workflows for personas that work in a single team, like Engineers, UX, Product, and Engineering Managers. Example workflows are iteration planning, status views for a single team, and retrospectives.
+* Out of the box functionality that aligns to industry-standard program and portfolio management, including frameworks like [SAFe](https://www.scaledagileframework.com), [LeSS](https://less.works), and [Disciplined Agile](https://www.pmi.org/disciplined-agile).
+   * Work Items that represent collections of units of work and are typically used by multiple teams. Today we use Epics to represent collections of units of work but we plan to [standardize on an underlying common model](https://docs.gitlab.com/ee/development/work_items.html) and introduce additional portfolio level work item types. Examples of portfolio level work item types are Features, Epics, Themes, and OKRs.
+   * Views to facilitate Plan workflows for personas that work across teams, like Program Managers, Managers of Managers, and Executives. The ability to relate and roll up work items across projects and groups will be critical for these personas. Example workflows are quarterly or program increment planning, status reporting across multiple teams, and retrospectives across multiple teams.
+* Options to customize the data captured about work items and their status. We currently rely on labels for this information, but our customers have expressed the need for a more structured approach. A lightweight custom data solution in GitLab has the ability to enable a wide range of use cases such as prioritization models and CapEx reporting.
+
+#### Our approach to configuration
+
+Our vision is to build a Plan experience that aligns with our [configuration principles](https://handbook.gitlab.com/handbook/product/product-principles/#configuration-principles). When you look across the Enterprise Agile Planning tool landscape, you'll find solutions with large customer bases that cover many methodologies and personas. Our competitors have built highly flexible solutions with many customization options to accommodate the large array of use cases. Unfortunately, this makes these tools non-performant and challenging to administer, leading to customer dissatisfaction.
+
+We have strong signals from our customers that they want a planning tool that supports their processes but is not overbearing. Recent conversations include:
+* An industry leading telecommunications company that wants to consolidate multiple planning tools into GitLab. Their current setup has complicated enforced workflows and data integrations that make their tools difficult to use.
+* A bank that is migrating their teams to GitLab, leaving behind their current highly customized planning tool. Our plan capabilities are lighter weight, increase developer productivity, and encourage collaboration.
+* A manufacturing company that values team automony and collaboration. They are moving to GitLab to reduce context switching with separate development and planning tools and to improve cross-team planning workflows.
+
+There are now countless solutions that aim to make planning tools that teams love. For example, tools like Notion, Monday.com, and Asana simplify configuration and focus on user experience. Embracing a comparable philosophy, our approach will distinguish itself through a tailored experience driven by our platform strategy. Our focus is empowering DevSecOps organizations to enhance their [agile fluency](https://martinfowler.com/articles/agileFluency.html) by seamlessly integrating workflows throughout the DevSecOps lifecycle.
+
+We have heard the feedback that, while we should stay true to our principle of convention over configuration, GitLab should enable configuration options that allow organizations to accurately represent their way of working. Introducing additional configuration options will also allow us to create an experience that works by default, instead of heavily relying on label configuration. To address this feedback, we plan to introduce the features below:
+- [Custom fields](https://gitlab.com/groups/gitlab-org/-/epics/235) - Labels are not flexible enough to efficiently or accurately represent all the different data types that organizations need to track within GitLab. Custom fields will offer a structured way to capture and report on business critical metadata that is specific to an organization or team. 
+- [Configurable statuses](https://gitlab.com/groups/gitlab-org/-/epics/5099) - Today, work items can be open or closed which is not granular enough to communicate or produce reports based on where work is in the lifecycle. 
+- [Work Item Types](https://gitlab.com/groups/gitlab-org/-/epics/7897) - Instead of relying solely on labels to classify work items, you will be able to define the types of work items. Using work item types will enable more robust analytics into the health of your value stream. 
+- [Automation rules](https://gitlab.com/groups/gitlab-org/-/epics/364) - Relying on automation streamlines processes and reduces human error more effectively than configuring complex status workflows in agile planning tools, enhancing efficiency and ensuring consistent performance. We will prioritize automation over intricate status workflows to satisfy requirements for work items to follow a specific workflow path.
+
+GitLab will continue to put the user at the forefront, while further enabling organizations to satisfy their planning requirements through:
+
+1. Streamlined configuration: We will prioritize simplicity by minimizing configuration options while always providing sensible defaults. This approach avoids the confusion and inconsistency often associated with overly customizable tools, ensuring a smoother experience for end users. Examples of overly complex configuration are defining a field as mandatory once a work item reaches a certains status or only allowing certain fields to be only edited by specific users. 
+2. Uninterrupted workflows: Embracing Agile principles, we will steer clear of imposing rigid toll gates or checkpoints that hinder progress. By fostering flexibility and continuous delivery, we empower teams to respond swiftly to changes and deliver value incrementally, without unnecessary bureaucracy.
+3. Empowering autonomy: Balancing governance and autonomy, we will offer organization and team-level management options. Our cascading configuration model will allow for flexibility, enabling groups to define and refine processes while ensuring compliance where needed. Administrators can choose to empower sub-groups and projects with additional configuration options to suit their unique needs without risking disorganized sprawl.
+
+#### Duo Pro and Enterprise usage metrics
+
+The Optimize team is focusing on iterating on [AI Impact Analytics](https://gitlab.com/groups/gitlab-org/-/epics/12978) to surface usage and value metrics for customers adopting Duo Pro and Duo Enterprise. While there are several avenues we could explore for AI Impact Analytics, it's important to distinguish what we are incorporating into our scope and what we are not. Items in scope represent those things for which Optimize is the DRI. Items not in scope fall outside of the domain and ownership of Optimize. 
+
+In scope:
+
+- Metrics that help a single customer gain insights into the value and ROI for using Duo.
+- This focus is primarily on quantifying productivity gains, business outcomes, and Duo adoption for individual customers. 
+- AI Impact Analytics dashboards built in alignment with the vision of a [platform-level dashboarding framework](https://gitlab.com/groups/gitlab-org/-/epics/13801).
+- Tiering strategy for AI Impact Analytics for Duo Pro and Duo Enterprise.
+- Per-user adoption of Duo Enterprise features within the context of a single customer. 
+
+Not in scope:
+
+- Utilization metrics that span across the fleet of instances and customers communicating with the AI Gateway.
+- Utilization metrics intended for internal audiences such as those captured via product telemetry and visualized in Tableau. 
+- Functionality and maintenance of existing and future Duo unit primitives outside of those where Optimize is the DRI. 
+- Duo license provisioning and management, including field support where customers encounter challenges with license management.
+- Adding support for ClickHouse to GitLab Dedicated.
+- Instrumenting Duo metrics for other teams. The DRI for a Duo unit primitive is responsible for instrumenting their own metrics.
+- Duo usage data specifically related to fulfillment use cases.     
+
+### Use DevSecOps data to optimize planning
+
+As an end-to-end DevSecOps platform, GitLab is uniquely positioned to deliver a planning suite that enables business leaders to drive their vision and empower their development teams to work efficiently. Our unification of the DevSecOps process allows us to interlink data across every stage of development, from initial analysis to planning, implementation, deployment, and monitoring. Today, few teams can answer how long their software projects take, and even fewer can answer how long each stage in the process takes. Without this information, most teams are flying blind on their estimates, using past experiences and best guesses to best calculate the time or level of effort that it will take to get from an idea to production.
+Engineering and product managers need to parse through information in multiple systems to know if problems will keep their teams from meeting their plans. The data is often hard to understand, so engineers' days are interrupted with requests for status updates. Executives rely on status reports that are created manually and often inaccurate. To fully solve this problem, DevSecOps data should be displayed so that it's easy to understand for users that are not developers.
+
+As examples, GitLab will:
+
+* Roll-up reports and dashboarding that provide visibility into where to focus next on improving performance and reliability includes:
+   - Value stream dashboard to allow all stakeholders, from executives to individual contributors, to have visibility in the process and value delivery metrics associated with the software development life cycle. The Value stream dashboard enables teams to continuously improve workflows by benchmarking key DevSecOps metrics and comparing these metrics over time to identify and fix engineering inefficiencies and bottlenecks.
+   - Everyday analytics for teams: Increasing the effectiveness and efficiency of everyday software development teams — surfacing actionable insights, identifying bottlenecks, and highlighting waste.
+* Leverage data from other DevSecOps stages to provide context to non-technical users in work items; enabling them to derive the current status of work.
+* Flag work items that are at risk during an iteration based on [DORA key metrics](https://docs.gitlab.com/ee/user/analytics/ci_cd_analytics.html#DevSecOps-research-and-assessment-dora-key-metrics) and [Value Stream Analytics](https://docs.gitlab.com/ee/user/group/value_stream_analytics/).
+* Incorporate data from [DORA key metrics](https://docs.gitlab.com/ee/user/analytics/ci_cd_analytics.html#DevSecOps-research-and-assessment-dora-key-metrics) and [Value Stream Analytics](https://docs.gitlab.com/ee/user/group/value_stream_analytics/) into retrospective workflows.
+
+### Automation, Artificial Intelligence and Machine Learning to improve quality of life
+
+Managing issues across an organization can be a time-consuming and tedious endeavor. It's normal for organizations to have a large number of stale issues that require manual clean-up. Our focus will be to let automation do the lower value work like managing status changes and automating the movement of work items among workstations (queues) so the people doing the work can focus more on creating value and less on remembering the process. At GitLab, we dogfood our issue tracker and have implemented a considerable amount of [automation](https://gitlab.com/gitlab-org/gitlab-triage) to start down this direction. We will double down on this strategy, incorporate automation into our product and reduce the manual setup required to enable it. GitLab can also provide suggestions and nudges that reduce the number of actions required to complete common tasks.
+
+GitLab has recently created [AI-powered stage](https://about.gitlab.com/direction/ai-powered/) and the Plan Stage has been collabrating with that stage to bring new AI-powered Planning capabilities.
+
+As examples, GitLab will provide:
+* Assistance in generating text for work items like issues and epics.
+* Auto-assign issues based on previous assignments.
+* Auto-close or suggest closing issues if downstream activity implies it.
+* Apply labels automatically based on historical issue data.
+* Change issue health if downstream DevSecOps activity implies it.
+* Surface, categorize and rank work items that may need a user's attention.
+* Optimize everyday manual actions like work item data entry or updates by providing real-time suggestions.

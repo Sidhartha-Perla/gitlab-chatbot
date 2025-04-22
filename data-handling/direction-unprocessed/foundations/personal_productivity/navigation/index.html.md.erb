@@ -1,0 +1,85 @@
+---
+layout: markdown_page
+title: "Category Direction - Navigation"
+description: "This page outlines the direction for the navigation product category."
+canonical_path: "/direction/foundations/personal_productivity/navigation/"
+---
+
+- TOC
+{:toc}
+
+## Navigation
+
+|                       |                               |
+| -                     | -                             |
+| Stage | [Foundations](/direction/foundations) |
+| Maturity              | N/A |
+| Content Last Reviewed | `2025-02-03`                  |
+
+### Introduction and how you can help
+
+<%= partial("../templates/intro.html", { locals: { context: "Navigation category", label: "Category:Navigation" }}) %>
+
+## Overview
+
+Navigation is the highway through which almost every feature is accessed or discovered, and it must be accessible for all types of people and abilities. For this reason, the navigation structure is one of the most important parts of any application's user interface.
+
+## Strategy and Themes
+
+The navigation experience _must_ be described as intuitive. When navigation is effective, users trust that they can rely on it to help orient and empower themselves within the product. To aid in decision making we will continue to invest in these themes:
+
+- Minimizing the feeling of being overwhelmed
+- Orienting users across the platform
+- Making it easier to pick up where you left off
+
+In FY24 we invested in [overhauling our core navigation](https://gitlab.com/groups/gitlab-org/-/epics/9044 "Overhaul the core navigation experience"), and now we are looking towards how the navigation must evolve to address existing pain points while also accommodating future changes to the product. In our original investment, we focused exclusively on the navigation's information architecture to guide users through the product. Our next series of work will explore navigation more broadly by looking at three key areas:
+
+* Product homepage
+* Navigation structure
+* Search
+
+### Homepage
+
+The homepage presents the next major opportunity for improving navigation through GitLab by centering on user-created content instead of features. We can personalize this experience to provide information that users need to be productive within GitLab, while still showcasing the full suite of features in other contexts. This will allow users to rapidly move between features across projects by providing deep links into the relevant content.
+
+### Navigation structure
+
+The removal of the standard "top bar" has displaced the usual placement of global elements, such as search, profile, notifications, and so on which is commonly expected in most applications. This departure from familiar design patterns increases the learning curve for our product and may hinder workflow efficiency.
+
+### Search
+
+Similar to the homepage, search allows users to focus on the parts of GitLab they're most familiar with - the content they create. We moved the search control into the side navigation as part of the navigation overhaul in FY24 and have seen a decline in search usage since that time. We are revisiting this decision as we explore the other key areas listed above. We will complete this exploration in partnership with `~"group::global search"`.
+
+## 1 year plan
+
+Our initiative aims to develop a centralized, personalized homepage that serves as a dynamic work hub for our users. This solution will create an intelligent workspace that surfaces relevant updates, enables work continuity, and helps users maintain awareness of their various ongoing activities and interests across the platform.
+
+[**Initial research into personalized homepage**](https://gitlab.com/groups/gitlab-org/-/epics/16658)
+
+Our first phase of research was based on the idea that we could build a customizable homepage off of our [existing dashboard framework](https://gitlab.com/gitlab-org/gitlab/-/issues/464617). The initial findings from the [study](https://gitlab.com/gitlab-org/ux-research/-/issues/3157) suggested that we may be able to provide a single homepage experience that meets a broad collection of user personas - without relying on end-user customization to create a satisfactory experience. We are continuing to research this direction.
+
+[**Basic personalized homepage**](https://gitlab.com/groups/gitlab-org/-/epics/16657)
+
+Our first iteration will be a page that consolidates content we already have in GitLab to make it easier for users to pick up where they left off. This will include information like (but not limited to):
+
+* Pending to-do items
+* Assigned issues
+* Assigned MRs
+* Review requests
+* Recently viewed GitLab content
+* Followed user activity feed
+* User bookmarks
+
+[**AI-powered personalized homepage**](https://gitlab.com/groups/gitlab-org/-/epics/16659)
+
+Once we have a minimal experience in place, we will begin using GitLab Duo to summarize and prioritize this content. We're still actively researching what is possible in this space and will share our plans as we learn more.
+
+_In addition, the Personal productivity group owns the [navigation structures](https://handbook.gitlab.com/handbook/product/ux/navigation/) of GitLab and is responsible for reviewing and approving any proposed changes. Given the effort required by these requests we dedicate time each milestone to support teams with [this process](https://handbook.gitlab.com/handbook/product/ux/navigation/#how-to-propose-a-change-that-impacts-navigation)._
+
+## Maturity Plan
+
+As this is not a marketing category, we don't have a specific measure of maturity.
+
+## Target Audience
+
+All [roles & personas](https://handbook.gitlab.com/handbook/product/personas/) interact with this category in some capacity.

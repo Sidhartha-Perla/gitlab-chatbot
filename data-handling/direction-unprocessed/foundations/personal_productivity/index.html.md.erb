@@ -1,0 +1,140 @@
+---
+layout: markdown_page
+title: "Group Direction - Personal productivity"
+description: "Overall direction for the Personal productivity group"
+canonical_path: "/direction/foundations/personal_productivity/"
+epic_roadmap: https://gitlab.com/groups/gitlab-org/-/roadmap?state=all&sort=start_date_asc&layout=QUARTERS&timeframe_range_type=THREE_YEARS&label_name%5B%5D=group::personal%20productivity&label_name%5B%5D=direction&progress=COUNT&show_progress=true&show_milestones=false&milestones_type=GROUP&show_labels=false
+---
+
+<% group_config = data.stages.stages.foundations.groups.personal_productivity %>
+
+- TOC
+{:toc}
+
+| | |
+| --- | --- |
+| Stage | [Foundations](/direction/foundations) |
+| Maturity | _Not scored_ |
+| Content last reviewed | 2025-02-03 |
+
+## Introduction and how you can help
+
+Thanks for visiting the direction page for the [Personal productivity group](https://handbook.gitlab.com/handbook/<%= group_config.group_link %>) at GitLab. The Personal productivity group lives within the [Foundations stage](/direction/foundations) and is maintained by [Jeff Tucker](https://gitlab.com/jtucker_gl).
+
+The Personal productivity group owns three categories within GitLab:
+
+| Category | Direction | Description |
+| --- | --- | --- |
+<% for category in data.categories.values_at(*group_config.categories) do %>
+| <%= category.name %> | [Direction page](<%= category.direction %>) | <%= category.description %> |
+<% end %>
+
+If you're a GitLab user and have feedback about your needs for navigation, notifications, settings, or general product design, we would love to hear from you.
+
+* Share feedback in a related [issue](https://gitlab.com/groups/gitlab-org/-/issues/?sort=popularity&state=opened&label_name%5B%5D=group%3A%personal%20productivity&first_page_size=20) or [epic](https://gitlab.com/groups/gitlab-org/-/epics?state=opened&page=1&sort=CREATED_AT_DESC&label_name%5B%5D=group%3A%personal%20productivity), or [on a video call](https://calendly.com/jtucker-gitlab/30min)
+* To contribute, please [open an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new#) using the `~"group::personal productivity"` label
+* Team members can reach us in the `#<%= group_config.slack.channel %>` Slack channel.
+
+As always, this direction page is a work in progress, and everyone can contribute.
+
+## Strategy and themes
+
+GitLab's [10 year vision](https://handbook.gitlab.com/handbook/company/vision/) is to become the **AllOps platform** — a single application for all R&D. As GitLab's product offering grows to meet that vision, users will be faced with an increasingly complex product. Our quarterly [System Usability Score (SUS) survey](https://handbook.gitlab.com/handbook/product/ux/performance-indicators/system-usability-scale/) already shows that customers struggle with the complexity of the product, so we need to continually refine our product experiences to support the growth ahead.
+
+In some cases, individual teams are able to address findings from SUS surveys, such as confusion around behavior in a merge request or pipeline. Our [UX Paper Cuts](/direction/foundations/ux-paper-cuts) team is charged with rapidly triaging and addressing these challenging experiences. However, much of the feedback we receive is foundational to the product, discussing areas like navigation, notifications, task management, and settings. These cross-stage UIs and user workflows need to be consistent, clearly designed, and iterated on like a feature to improve the overall user experence of GitLab.
+
+The ~"group::personal productivity" group supports the GitLab vision by improving and iterating on these core experiences. Our goal is to make every GitLab user feel like a power user, supporting and driving their usage of all the features GitLab has to offer. Here are some examples of foundational experiences that drive our direction:
+
+-  Streamline navigation across the application
+-  Help users find what matters to them on the product home page
+-  Help users communicate with their teams across workflows. For example, through email, todos, comments, etc.
+-  Navigating to a filtered view in GitLab for a ritual such as monitoring specific security vulnerabilities, or a planning board for standup.
+-  The user flow of using a new feature, navigating to the docs, and back to the feature
+
+We measure success of this initiative in three key ways:
+
+1. SUS score &mdash; Do people report being happier with the product experience?
+1. Retention &mdash; Are they regularly returning to the product week-over-week?
+1. Use case adoption &mdash; Are we driving adoption of key GitLab capabilities in new and returning users?
+
+## 1 year plan
+
+[**Personalized home page**](https://gitlab.com/groups/gitlab-org/-/epics/11421)
+
+We do not have one place in GitLab for a user to be able to easily see at a glance all relevant items they are working on and care about. The new navigation improved navigating within a project or group, but there is still not an efficient way to check on things across groups and projects, or monitor other areas of GitLab that users care about without requiring more clicks. It is also not easy to be able to check on teammates work, or to see at a high level all of the things you may need to act on. We want to create a personalized home page that allows users to easily jump back into their work.
+
+[**Introduce a GitLab notifications center**](https://gitlab.com/groups/gitlab-org/-/epics/11609)
+
+Many users complain that todos require excessive pruning in order to be useful. They also complain that they have to rely too much on email or third-party software in order to receive all necessary notifications. Many users mention wanting a proper notification center. We plan to release our first MVC for a GitLab notification center this year.
+
+You can read more about our plans for notifications in the [notifications category direction page](<%= data.categories['notifications'].direction %>).
+
+### What is next for us?
+
+You can view our [roadmap in GitLab](<%= current_page.data.epic_roadmap %>).
+
+<!--
+Hoping that we can embed roadmap views one day...
+<figure class="video_container">
+<iframe width="560" height="315" src="<%= current_page.data.epic_roadmap %>" title="GitLab roadmap view" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</figure>
+-->
+
+### What we are currently working on
+
+<%= partial("templates/kickoff_video.html") %>
+
+### Beyond 1 year
+
+[**Easily switch between projects**](https://gitlab.com/groups/gitlab-org/-/epics/13076)
+
+We conduct quarterly feedback surveys on GitLab's navigation. Users have mentioned navigating between projects as a major challenge during the most recent surveys. We will seek to improve that experience soon.
+
+**Maturing the user experience for settings**
+
+We have consistently received feedback from customers expressing the difficulty in discovering, finding, and recalling where to find specific settings within GitLab. We want to further simplify the settings pages to aid new users in setting up their first GitLab project.
+
+We have also heard from enterprise accounts that managing settings at the project level does not scale to meet their need of administering 1,000s of projects. We will explore approaches that allow large GitLab installations to drive consistency in how they govern their projects.
+
+**Workflow-oriented navigation**
+
+Customers need GitLab to offer complete solutions to complex problems. Often solving a single problem requires using many features across the product. Our long-term goal is to provide workflow-oriented navigation throughout GitLab, seamlessly connecting all of the features it offers.
+
+### What we recently completed
+
+* [Snooze to-do items](https://gitlab.com/gitlab-org/gitlab/-/issues/17712)
+* [Automatically refresh the To-Do List](https://gitlab.com/gitlab-org/gitlab/-/issues/23084)
+* [Migrate the To-Do List to Vue](https://gitlab.com/gitlab-org/gitlab/-/issues/464069)
+* [Search for settings via the command palette](https://gitlab.com/groups/gitlabV-org/-/epics/13078)
+
+## Best in Class Landscape
+
+While Personal productivity doesn't represent a competitive group, the core user experience of GitLab will impact how well GitLab performs in the market. We take inspiration from others in the field that are delivering exceptional user experiences.
+
+**GitHub**
+
+GitHub is our closest competitor. Most of our users have used GitHub, and routinely compare the two products. We want to provide experiences that feel familiar to these users while still maintaining the differentiation that our complete DevSecOps platform provides.
+
+**GitDock**
+
+Built by GitLab Team Member [Marcel van Remmerden](https://gitlab.com/mvanremmerden), [GitDock](https://gitlab.com/mvanremmerden/gitdock) is a MacOS/Windows/Linux app that displays all your GitLab activities in one place. Instead of the GitLab typical project- or group-centric approach, it collects all your information from a user-centric perspective.
+
+**Stripe**
+
+[Stripe](https://stripe.com/) has long been a design-focused darling of the tech world. They have consistently delivered product experiences that center around key user workflows. We are especially inspired by how they manage site navigation with such a complex portfolio.
+
+## Target audience
+
+Foundational experiences are used by all users, so any changes we make must consider the needs of a broad range of personas.
+That said, the areas we focus on are most impactful to people that use GitLab daily. We see the following personas as being our key targets:
+
+* [Parker (Product Manager)](https://handbook.gitlab.com/handbook/product/personas/#parker-product-manager)
+* [Delaney (Development Team Lead)](https://handbook.gitlab.com/handbook/product/personas/#delaney-development-team-lead)
+* [Presley (Product Designer)](https://handbook.gitlab.com/handbook/product/personas/#presley-product-designer)
+* [Sasha (Software Developer)](https://handbook.gitlab.com/handbook/product/personas/#sasha-software-developer)
+* [Priyanka (Platform Engineer)](https://handbook.gitlab.com/handbook/product/personas/#priyanka-platform-engineer)
+* [Rachel (Release Manager)](https://handbook.gitlab.com/handbook/product/personas/#rachel-release-manager)
+* [Simone (Software Engineer in Test)](https://handbook.gitlab.com/handbook/product/personas/#simone-software-engineer-in-test)
+* [Amy (Application Security Engineer)](https://handbook.gitlab.com/handbook/product/personas/#amy-application-security-engineer)
+* [Isaac (Infrastructure Engineer)](https://handbook.gitlab.com/handbook/product/personas/#isaac-infrastructure-security-engineer)
+* [Alex (Security Operations Engineer)](https://handbook.gitlab.com/handbook/product/personas/#alex-security-operations-engineer)

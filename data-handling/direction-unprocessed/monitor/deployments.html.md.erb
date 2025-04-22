@@ -1,0 +1,60 @@
+---
+layout: markdown_page
+title: "Stage Direction - Monitor"
+---
+
+- TOC
+{:toc}
+
+## Deployment approaches
+
+The Monitor stage offerings for both Product Analytics and Observability will require separate infrastructure from what GitLab runs on today.
+This is due to the need to leverage technologies like ClickHouse, Snowplow, Cube.dev, and others.
+We have different requirements than the Rails monolith with respect to qualities such as data ingestion, and horizontal scalability as part of providing a data management platform.
+We are exploring this as part of an internal [working group](https://internal.gitlab.com/handbook/company/internal-working-groups/product-usage-data-architecture/).
+We will provide multiple different deployment options for this for GitLab.com, [GitLab Dedicated](https://docs.gitlab.com/ee/subscriptions/gitlab_dedicated/), and self-managed deployments of GitLab.
+
+One deployment option is for allowing Bring-Your-Own-Cluster or BYOC. In this deployment
+option, users will need to configure, run, and connect all of their own infrastructure to GitLab.
+This can work for GitLab.com, Dedicated, and self-managed. It lets users maintain full control over
+all their data and infrastructure at the expense of having to manage, scale, and support it themselves.
+
+The other deployment option is to allow GitLab Inc to manage the required infrastructure. In this
+deployment option, users will be given URLs and API tokens that they can use to connect to pre-configured
+infrastructure. This means they can use it directly and not have to worry about scaling or managing it
+themselves. This will work on GitLab.com since we will connect a cluster directly to it. It will also
+work for GitLab Dedicated and self-managed customers by leveraging our [cloud connector](https://docs.gitlab.com/ee/development/cloud_connector/)
+functionality.
+
+Today, both Observability and Product Analytics can be used on GitLab.com with the managed infrastructure approach.
+For Observability, only the cloud connector approach is available to Dedicated and self-managed users and in a beta state.
+In contrast, only the BYOC approach is available for Product Analytics for Dedicated and self-managed users.
+
+Customers will choose one to use but it does not mean they are mutually exclusive from GitLab's perspective in terms of which to implement.
+Our ideal state is that both approaches are available for customers to choose from.
+Primarily it is a sequencing decision on which we will develop first and which second.
+
+We will first focus on enabling the BYOC deployment option for Observability.
+We will then work on enabling the cloud connector approach for Product Analytics.
+This approach will let us create a BYOC option that can be released in a GA capacity more quickly than doing it in the opposite order.
+Providing a managed version via cloud connector requires additional operational support and maintenance after the initial release that will take longer
+for us to be in a position to provide. In contrast, we can create a BYOC version of observability, modeled after the [BYOC of Product Analytics](https://gitlab.com/gitlab-org/analytics-section/product-analytics/helm-charts), in a shorter time.
+
+To simplify our current and deployement planned deployment options, the table below summarizes this:
+
+#### Observability
+
+| Deployment Method | Available on GitLab.com | Available on GitLab Dedicated | Available on self-managed |
+| - | - | - | - |
+| Bring your own cluster | Planned | Planned | Planned |
+| [Cloud connector](https://about.gitlab.com/direction/cloud-connector/) | N/A | Planned | Planned |
+| GitLab managed | Beta | Planned | Planned |
+
+
+#### Product Analytics
+
+| Deployment Method | Available on GitLab.com | Available on GitLab Dedicated | Available on self-managed |
+| - | - | - | - |
+| Bring your own cluster | GA | GA | GA |
+| [Cloud connector](https://about.gitlab.com/direction/cloud-connector/) | N/A | Planned | Planned |
+| GitLab managed | Beta | Planned | Planned |

@@ -1,0 +1,26 @@
+Our roadmap for the upcoming year (rolling 12 months) is focused on three main initiatives:
+
+**1. Strengthen customer confidence with [migration by direct transfer General Availability](https://gitlab.com/groups/gitlab-org/-/epics/11398)**
+[Migration by direct transfer](https://docs.gitlab.com/ee/user/group/import/index.html#migrate-groups-by-direct-transfer-recommended) has been available as a Beta feature, but many enterprise customers avoid using it due to internal policies requiring GA products for mission-critical systems. We plan to bring Direct Transfer to GA status in Q2 FY26, providing enterprise customers with the assurance they need while delivering a smoother, more reliable migration experience.
+Work includes:
+
+- Completing reliability enhancements to ensure consistent migration results
+- Polishing the new [user contributions mapping feature](https://docs.gitlab.com/user/project/import/#user-contribution-and-membership-mapping)
+- Conducting thorough security reviews and performance testing
+
+**2. Enable migrations between offline GitLab instances**
+PubSec and highly regulated customers often maintain GitLab instances in offline environments. Currently migration by direct transfer require internet connectivity, making it difficult for these customers to move data between instances.
+By implementing support for semi-automated migrations between offline instances in Q3 FY26, we'll address the needs of these customers.
+
+**3. Enable imports from various third-party providers**
+We're working on defining a standard data format and providing tools for contributors to build compatible importers outside of GitLab's main codebase. This will allow us to support imports from a wider range of platforms without increasing our maintenance burden.
+
+**Engineering-led Initiative: Standardizing Importers**
+
+In parallel with our product-led initiatives, our engineering team is working on standardizing importers to improve consistency, security, and performance by creating reusable components. This will:
+
+- Create a more consistent user experience across importers
+- Improve security and performance of all importers
+- Reduce maintenance burden by centralizing common code
+- Make it easier to implement new features and fix bugs
+

@@ -1,0 +1,59 @@
+---
+layout: markdown_page
+title: "Tactical Priorities - Compliance"
+description: "This page describes our long-term fuzz testing strategic initiatives. These initiatives represent our ambitious goals that we want to hit, even though they may be difficult to achieve."
+canonical_path: "/direction/software_supply_chain_security/compliance/tactical-priorities.html"
+---
+
+This page captures our priorities at a finer-grained level than the [main group direction](/direction/software_supply_chain_security/compliance/) page. It shows major topics and projects that we are working on and prioritizing. It is stack ranked, which means that items at the top of the list are higher priority than items lower on the list.
+
+This list highlights major initiatives but is not comprehensive. For specific work being done in an inidividual milestone, please refer to the
+appropriate [milestone planning issues](https://gitlab.com/groups/gitlab-org/software-supply-chain-security/compliance/-/epics/2).
+
+
+## Priorities
+
+### Now
+
+| Priority | Name | DRI | Target release | Division |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+<% data.product_priorities.compliance.now.each.with_index do |priority, index| %>
+<% next if priority.status == "CLOSED" %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>` | `<%= priority.division.presence ? priority.division.slice(10..-1) : "TBD" %>` |
+<% end %>
+
+### Next
+
+| Priority | Name | DRI | Target release | Division |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+<% data.product_priorities.compliance.next.each.with_index do |priority, index| %>
+<% next if priority.status == "CLOSED" %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>` | `<%= priority.division.presence ? priority.division.slice(10..-1) : "TBD" %>` |
+<% end %>
+
+### Later
+
+| Priority | Name | DRI | Target release | Division |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+<% data.product_priorities.compliance.later.each.with_index do |priority, index| %>
+<% next if priority.status == "CLOSED" %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>` | `<%= priority.division.presence ? priority.division.slice(10..-1) : "TBD" %>` |
+<% end %>
+
+### Ongoing
+
+| Priority | Name | DRI | Target release | Division |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+<% data.product_priorities.compliance.ongoing.each.with_index do |priority, index| %>
+<% next if priority.status == "CLOSED" %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>` | `<%= priority.division.presence ? priority.division.slice(10..-1) : "TBD" %>` |
+<% end %>
+
+### Uncategorised
+
+| Priority | Name | DRI | Target release | Division |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+<% data.product_priorities.compliance.uncategorised.each.with_index do |priority, index| %>
+<% next if priority.status == "CLOSED" %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.dri.presence || "TBD" %>` | `<%= priority.target_release.presence || "TBD" %>` | `<%= priority.division.presence ? priority.division.slice(10..-1) : "TBD" %>` |
+<% end %>

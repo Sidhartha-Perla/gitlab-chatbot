@@ -1,0 +1,77 @@
+---
+layout: sec_direction
+title: Product Stage Direction - Application Security Testing
+description: "The Secure Section focuses on identifying security findings within applications and services prior to moving them to operations. Learn more!"
+canonical_path: "/direction/application_security_testing/"
+---
+
+## On this page
+{:.no_toc}
+
+- TOC
+{:toc}
+
+<p align="center">
+    <font size="+2">
+        <b>Security scanning that AppSec teams trust, and developers love</b>
+    </font>
+</p>
+
+<%= devops_diagram(["Application Security Testing"]) %>
+
+## Overview
+
+<%= partial("direction/application_security_testing/templates/overview") %>
+
+### Groups
+
+The AST stage is made up of five groups:
+
+- [Static Analysis](./static-analysis/): Assess applications and services for vulnerabilities and weaknesses by scanning source code.
+- [Secret Detection](./secret-detection/): Assess code to prevent leaked secrets, before and after commit.
+- [Dynamic Analysis](./dynamic-analysis/): Assess running applications and services for vulnerabilities and weaknesses by analyzing application behavior at runtime.
+- [Composition Analysis](./composition-analysis/): Assess applications and services by analyzing your dependencies and containers for vulnerabilities and weaknesses. Confirm that only approved licenses are in use.
+- [Vulnerability Research](https://handbook.gitlab.com/handbook/engineering/development/sec/secure/vulnerability-research/): Lead the ideation and evolution of GitLab's security capabilities via the application of innovative security research and emerging technologies. Curate high-quality detection rules across GitLab's suite of security analyzers.
+
+## 3-year strategy
+
+Customer needs for Application Security Testing (AST) are evolving rapidly, driven by the increasing pace and complexity of modern software development and the growing sophistication of security threats.
+We see at least two major themes in the AST market today:
+
+1. Developer-centricity:
+   - Analyst firms like Gartner and Forrester highlight a "seismic shift" towards more _integrated, developer-centric solutions_ that seamlessly fit into existing workflows.
+   - Organizations are prioritizing tools that offer _high accuracy_, _minimal friction_, and _actionable insights_ so developers can cut through the noise and focus on impactful changes.
+   - There is a growing emphasis on _continuous scanning_ across the entire software development lifecycle (SDLC), enabling _real-time security feedback and remediation_ and aligning with the broader industry movement toward "shifting security left".
+2. Platforms. The AST market has also continued a long-term trend toward a more bundled, _platform-oriented_ model, meaning that organizations can increasingly buy all of their key capabilities from a single vendor.
+
+In the next 3 years, we expect the AST market will:
+
+1. Shift from standalone security _tools_ to security _capabilities_ that are deeply embedded in development platforms and IDEs, making security testing a streamlined part of the development workflow.
+2. Increasingly emphasize AI-enhanced testing that moves beyond pattern matching and understands application context and business logic, dramatically reducing false positives while catching complex vulnerabilities.
+3. Deliver more actionable security insights by synthesizing context across different scan types in unified platforms and interfaces.
+4. Move beyond just _finding_ vulnerabilities, toward more actively helping _fix_ them through automated patches and intelligent code suggestions.
+
+As a unified, AI-powered DevSecOps platform, GitLab is well-suited to deliver what the market needs. We will continue to invest in our AST capabilities to enable security teams to scale their impact and achieve their security goals.
+
+## 3-year themes
+
+<%= partial("direction/application_security_testing/templates/themes") %>
+
+## 1-year plan
+
+To see what we're planning, check the individual [group](#groups) or [category](#categories) direction pages.
+
+## Pricing
+
+<%= partial("direction/application_security_testing/templates/pricing") %>
+
+## Categories
+
+<%= partial("direction/categories-content", :locals => { :stageKey => "application_security_testing" }) %>
+
+<p align="center">
+    <i><br>
+    Last Reviewed: 2025-02-20<br>
+    Last Updated: 2025-02-20
+    </i>
+</p>

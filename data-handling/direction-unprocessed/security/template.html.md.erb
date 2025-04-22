@@ -1,0 +1,125 @@
+---
+layout: sec_direction
+title: Product Section Direction - Security
+description: "Security visibility from development to operations to minimize risk"
+canonical_path: "/direction/security/"
+---
+
+## On this page
+{:.no_toc}
+
+- TOC
+{:toc}
+
+<p align="center">
+    <font size="+2">
+        <b>Security visibility from development to operations to minimize risk</b>
+    </font>
+</p>
+
+GitLab provides the single application organizations need to find, triage, and fix vulnerabilities, from development to production. This empowers organizations to apply repeatable, defensible processes that automate security and compliance policies that proactively reduce overall security risk.
+
+<%= devops_diagram(["Application Security Testing","Software Supply Chain Security", "Security Risk Management"]) %>
+
+## Section overview
+
+The Sec section focuses on providing security and compliance visibility across the entire software development lifecycle.
+We accomplish this by:
+- [Shifting security testing left](#shift-left-no-more-left-than-that), enabling developers to begin security scanning as soon as they write their first line of code.
+- Providing organizations with visibility and control over the security risk present across their environment.
+
+### GitLab and the DevSecOps lifecycle
+
+GitLab is uniquely positioned to fully support DevSecOps by providing a single application for the entire software development lifecycle. This includes both shifting Application Security Testing (AST) left as well as providing visibility and control over security and compliance findings, from first line of code to production.
+
+GitLab's single application maps directly to the DevSecOps lifecycle. GitLab's AST stage focuses on pinpointing vulnerabilities and weaknesses, from development to production, while the Security Risk Management (SRM) stage provides visibility and control over the security findings AST detects. Software Supply Chain Security (SSCS) makes GitLab a verifiably secure foundation for software delivery. Together, GitLab supports all teams involved in delivering secure applications:
+
+* Develop: Developers create new source code, including new features and bug fixes, and commit this code to a branch within the project. This step is supported by the [Create](https://about.gitlab.com/stages-devops-lifecycle/create/) stage of the DevOps lifecycle, providing developers with [source code management](https://about.gitlab.com/solutions/source-code-management/), [code editors](https://about.gitlab.com/direction/create/ide/web_ide/), and [code review](https://about.gitlab.com/stages-devops-lifecycle/create/) workflows.
+* Analyze: Upon code commit, AST scanners kick off automatically and identify any new security findings with the delta code change. This enables developers to stay within context, enabling them to understand the cause and effect of their code change. AST scanners leverage the [Verify](https://about.gitlab.com/stages-devops-lifecycle/verify/) stage of the DevOps lifecycle to provide scanning within the [CI pipeline](https://about.gitlab.com/solutions/continuous-integration/).
+* Mitigate: Developers are provided with the [details needed](https://docs.gitlab.com/ee/user/application_security/index.html#interacting-with-the-vulnerabilities) to understand how to remediate the newly introduced security findings. Developers are also offered [automatic remediation](https://docs.gitlab.com/ee/user/application_security/vulnerabilities/index.html#resolve-a-vulnerability), where applicable.
+* Protect: AST scanners provide continuous scanning coverage for applications deployed to production, while SRM dashboards and policies and SSCS compliance frameworks help users implement their security and compliance requirements across their organization.
+
+### Lowering the cost of remediation
+
+Remediating security vulnerabilities earlier reduces risk and makes remediation cheaper.
+
+![Cost of Remediation](/images/direction/sec/Cost_Of_Remediation.png)
+
+When security vulnerabilities are identified at the time of code commit, developers can understand how their newly
+introduced code has led to this new issue. This gives the developer a cause-and-effect enabling quicker resolution
+while not having the time hit of context switching. This is not true as security scanning is performed later in the
+software development lifecycle. New vulnerabilities may not be identified until weeks or months after they were added
+to the application while under development.
+
+Time is not the only savings when shifting security left.
+
+![Stage of Remediation](/images/direction/sec/Stage_of_Remediation.png)
+
+In [“The Economic Impacts of Inadequate Infrastructure for Software Testing”](https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf), NIST estimated the cost of remediating software bugs at $59.5 billion/year. This is compounded when taking in the average time to remediate software bugs. In [“Software Development Price Guide & Hourly Rate Comparison”](https://www.fullstacklabs.co/blog/software-development-price-guide-hourly-rate-comparison), FullStack Labs estimates the average cost of a software developer at $300/hour. The following table outlines the cost to remediate software bugs at different stages of the software development lifecycle:
+
+![Completed Loop](/images/direction/sec/costs_table.png)
+
+These costs are just the start of the financial impact when the software bug is also a software vulnerability. IBM, in partnership with the Ponemon Institute, put the [average cost to remediate a data breach in 2020](https://www.ibm.com/security/digital-assets/cost-data-breach-report/#/) at $3.86 million (USD). This does not take into consideration the reputation impact to the organization.
+
+### Closing the loop
+
+Having visibility into security risk in just development only provides you with half of the picture. Development and
+SecOps teams need to have a closed feedback loop enabling both teams to be successful. Development teams can gain
+insight into attacks targeting the applications they develop. This allows them to prioritize vulnerabilities correctly,
+enabling proactive resolutions to reduce risk. Likewise, SecOps teams can gain insight from their development
+counterparts, providing them with visibility into how the application works. This allows them to best apply proactive
+measures to mitigate attacks targeting the application until development can fix the vulnerability.
+
+![Completed Loop](/images/direction/sec/Completed_Loop.png)
+
+Closing the loop requires close collaboration, transparency, and efficiencies that only a single platform for the entire DevOps lifecycle can provide. Shifting security left while also providing protection for applications in production within a single application empowers teams to work closer together. Security is a team sport, and teams working together can best reduce their organization's overall security risk.
+
+### Groups
+
+The Sec section is made up of three stages of the DevSecOps lifecycle, along with the groups in those stages:
+
+- [Application Security Testing (AST)](/direction/application_security_testing/)
+- [Security Risk Management (SRM)](/direction/security_risk_management/)
+- [Software Supply Chain Security (SSCS)](/direction/software_supply_chain_security/)
+
+### Teams and Investments
+
+#### Team members
+
+Team members for the Sec Section can be found in the links below:
+
+* [Development](https://about.gitlab.com/company/team/?department=sec-section)
+* [User Experience](https://about.gitlab.com/company/team/?department=secure-ux-team)
+* [Product Management](https://about.gitlab.com/company/team/?department=sec-pm-team)
+* [Quality Engineering](https://about.gitlab.com/company/team/?department=sec-datascience-qe-team)
+
+#### Investments
+
+Team members can learn more about GitLab's investment into the Sec section by checking the
+[Product Investment](https://internal.gitlab.com/handbook/product/investment/) page in the internal handbook.
+
+### Accomplishments, News, and Updates
+
+A complete list of released features can be found in the [Release Feature Overview](https://gitlab-com.gitlab.io/cs-tools/gitlab-cs-tools/what-is-new-since/?tab=features&selectedStages=application_security_testing&selectedStages=security_risk_management&selectedStages=software_supply_chain_security).
+
+## 3 Year Section Themes
+
+<%= partial("direction/application_security_testing/templates/themes") %>
+
+<%= partial("direction/software_supply_chain_security/templates/themes") %>
+
+## Stages and Categories
+
+The Sec section is composed of two stages, [Secure](https://about.gitlab.com/direction/application_security_testing/) and [Govern](https://about.gitlab.com/direction/software_supply_chain_security/), each of which contains several categories. Each stage has an overall
+strategy statement below, aligned to the themes for Sec. Each category within each stage has a dedicated direction page
+plus optional documentation, marketing pages, and other materials linked below.
+
+<%= partial("direction/application_security_testing/templates/strategies") %>
+
+<%= partial("direction/software_supply_chain_security/templates/strategies") %>
+
+<p align="center">
+    <i><br>
+    Last Updated: 2025-02-20
+    </i>
+</p>

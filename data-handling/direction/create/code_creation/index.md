@@ -1,0 +1,23 @@
+---
+layout: markdown_page
+title: "Group Direction - Code Creation"
+description: "Helping developers create and maintain code"
+---
+
+## On this page
+{:.no_toc}
+
+- TOC
+{:toc}
+
+## Overview
+The Code Creation group focuses on helping developers create & maintain code more efficiently.
+
+## Categories  
+This group consists of the following category: 
+
+- [Code Suggestions](/direction/create/code_creation/code_suggestions)
+
+*Last Reviewed: 2024-10-15  
+Last Updated: 2024-10-15*
+</p>

@@ -1,0 +1,143 @@
+---
+layout: sec_direction
+title: "Category Direction - Static Application Security Testing (SAST)"
+description: "SAST checks source code to find possible security vulnerabilities. Learn more about where GitLab SAST is going."
+---
+
+- TOC
+{:toc}
+
+This direction page describes GitLab's plans for the SAST category, which checks source code to find possible security vulnerabilities.
+
+## Overview
+
+[GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/) runs on merge requests and the default branch of your software projects so you can continuously monitor and improve the security of the code you write.
+SAST jobs run in your CI/CD pipelines alongside existing builds, tests, and deployments, so it's easy for developers to interact with.
+
+While SAST uses sophisticated techniques, we want it to be simple to understand and use day-to-day, especially by developers who may not have specific security expertise.
+So, when you [enable GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/#configuration), it automatically detects the programming languages used in your project and runs the right security analyzers.
+
+While [basic SAST scans](https://docs.gitlab.com/ee/user/application_security/sast/#summary-of-features-per-tier) are available in every GitLab tier, organizations that use GitLab SAST in their security programs should use Ultimate.
+Only GitLab Ultimate [includes](https://docs.gitlab.com/ee/user/application_security/sast/#summary-of-features-per-tier):
+
+- Advanced SAST: proprietary scanning technology that delivers higher-quality results.
+- Advanced Vulnerability Tracking: proprietary technology that keeps track of vulnerabilities as they move around a codebase.
+- Workflows: SAST results integrated into the merge request workflow.
+- Related security and compliance features: Vulnerability Management, Security Policies, and other capabilities that help you enforce security requirements.
+
+## Strategy and themes
+<!-- Capture the main problems to be solved in market (themes). Describe how you intend to solve these with GitLab (strategy). Provide enough context that someone unfamiliar with the details of the category can understand what is being discussed. -->
+
+Our strategy depends on [understanding our customers and the broader market](market_context.html).
+
+### Specific product areas
+
+This section summarizes our plans for specific parts of GitLab SAST.
+
+#### Language support
+
+We are currently working to upgrade more languages to Advanced SAST.
+We will continue until we have enabled Advanced SAST for all languages that GitLab SAST [currently scans](https://docs.gitlab.com/ee/user/application_security/sast/#supported-languages-and-frameworks) using Semgrep-based scanning.
+See documentation for the current [languages Advanced SAST supports](https://docs.gitlab.com/ee/user/application_security/sast/gitlab_advanced_sast.html#supported-languages).
+
+Status of new languages is [tracked in epic 14312](https://gitlab.com/groups/gitlab-org/-/epics/14312#language-priority-and-status). As of 2025-02-06, the status is:
+
+| Language                                                                          | Expected release   | Notes |
+|-----------------------------------------------------------------------------------|--------------------|-------|
+| [PHP](https://gitlab.com/groups/gitlab-org/-/epics/14273)                         | 17.11 (April 2025) | Engine work expected to complete in 17.9. Rule development planned for 17.10 and 17.11. |
+| [C/C++](https://gitlab.com/groups/gitlab-org/-/epics/14271)                       | During 2025        | Technical design starting in 17.10. We plan to release iteratively over the course of 2025. |
+| [Kotlin](https://gitlab.com/groups/gitlab-org/-/epics/15173)                      | Pending            |  |
+| [Scala](https://gitlab.com/groups/gitlab-org/-/epics/15174)                       | Pending            |  |
+| [iOS (Swift and Objective-C)](https://gitlab.com/groups/gitlab-org/-/epics/16318) | Pending            |  |
+
+Advanced SAST will be [enabled by default](https://gitlab.com/groups/gitlab-org/-/epics/15145) in 18.0; it will [take over coverage](https://docs.gitlab.com/ee/user/application_security/sast/gitlab_advanced_sast.html) for the languages it supports at that time.
+
+When we complete this initiative, we will then evaluate the future plans for the Semgrep-based analyzer, because it will serve fewer Ultimate customers over time.
+
+For details on what is _not_ included in this initiative, see [What is not planned right now](#what-is-not-planned-right-now).
+
+#### Detection accuracy
+
+GitLab Vulnerability Research analyzes and improves coverage for already-supported languages as part of a continuous program of assessment and improvement.
+This program includes:
+
+- In-house security research.
+- Proactive assessments of real-world codebases and benchmark/example projects.
+- Reacting to feedback from customers and from internal users within GitLab.
+- Identifying opportunities to improve the Advanced SAST engine to enable new detection techniques.
+
+## 1 year plan
+<!--
+1 year plan for what we will be working on linked to up-to-date epics. This section will be most similar to a "road-map". Items in this section should be linked to issues or epics that are up to date. Indicate relative priority of initiatives in this section so that the audience understands the sequence in which you intend to work on them.
+ -->
+
+GitLab Static Analysis and Vulnerability Research teams are collaborating to improve the customer experience with SAST.
+
+Our plans align with the themes for the Security use case:
+
+1. **Detection accuracy:** Security professionals and developers should be able to trust every result from GitLab SAST. This work improves the user experience directly, but also indirectly by reducing the number of times users have to go through other workflows.
+1. **Shift left security:** GitLab SAST already scans code as soon as it's pushed, before code reviews even begin. But, we can make it easier to improve security by scanning code even earlier, including before code leaves developer machines.
+1. **Faster remediation:** We value our users' time, and we know that vulnerabilities are resolved more often if they're easier to understand and interact with.
+
+### What is next for us
+<!-- This is a 3 month look ahead for the next iteration that you have planned for the category. This section must provide links to issues or
+or to [epics](https://handbook.gitlab.com/handbook/product/product-processes/#epics-for-a-single-iteration) that are scoped to a single iteration. Please do not link to epics encompass a vision that is a longer horizon and don't lay out an iteration plan. -->
+<!-- 1 month: Scoped to the current month. This section can contain the items that you choose to highlight on the kickoff call. Only link to issues, not Epics.  -->
+
+In the next 3 months, we are planning to work on:
+
+| Name | Overall status | One-month plan | Three-month plan |
+| ---- | -------------- | -------------- | ---------------- |
+<% data.product_priorities.static_analysis.priorities.filter { |p| ((!p.category) || (p.category == "sast")) && (p.three_month? || p.one_month?) }.each do |p| %>
+| [**<%= p.name %>**](<%= p.url %>) | <%= p.status %> | <%= p.one_month %> | <%= p.three_month %> |
+<% end %>
+
+After the next 3 months, we plan to work on:
+
+| Name | Overall status |
+| ---- | -------------- |
+<% data.product_priorities.static_analysis.priorities.filter { |p| ((!p.category) || (p.category == "sast")) && !(p.three_month? || p.one_month?) }.each do |p| %>
+| [**<%= p.name %>**](<%= p.url %>) | <%= p.status %> |
+<% end %>
+
+## What we recently completed
+<!-- Lookback limited to 3 months. Link to the relevant issues or release post items. -->
+
+Our recent work includes:
+
+- [Experiment release for real-time SAST in VS Code](https://about.gitlab.com/releases/2025/01/16/gitlab-17-8-released/#sast-scanning-in-vs-code)
+- [Improved detection accuracy in Advanced SAST](https://about.gitlab.com/releases/2024/12/19/gitlab-17-7-released/#improved-detection-accuracy-in-advanced-sast)
+- [Expanded Code Flow view for Advanced SAST](https://about.gitlab.com/releases/2024/12/19/gitlab-17-7-released/#expanded-code-flow-view-for-advanced-sast)
+- [Ruby support and rule updates for Advanced SAST](https://about.gitlab.com/releases/2024/10/17/gitlab-17-5-released/#ruby-support-and-rule-updates-for-advanced-sast), including new documentation of [Advanced SAST CWE coverage](https://docs.gitlab.com/ee/user/application_security/sast/advanced_sast_coverage.html).
+- [Releasing GitLab Advanced SAST](https://about.gitlab.com/releases/2024/09/19/gitlab-17-4-released/#advanced-sast-is-generally-available) as a [GA feature](https://docs.gitlab.com/ee/policy/experiment-beta-support.html), and adding support for JavaScript, TypeScript, C#, and Java Server Pages (JSP) in GitLab 17.4
+
+Check [older release posts](https://gitlab-com.gitlab.io/cs-tools/gitlab-cs-tools/what-is-new-since/?tab=features&selectedCategories=SAST&minVersion=13_00) for our previous work in this area.
+
+## What is not planned right now
+
+We understand the value of many potential improvements to GitLab SAST, but aren't currently planning to work on the following initiatives:
+
+- **Expanding language support:** Currently, we're focusing on delivering better-quality results, faster, for [the many languages and frameworks we already support](https://docs.gitlab.com/ee/user/application_security/sast/#supported-languages-and-frameworks). We're not actively adding adding support for new languages.
+However, if we don't support a language you use, you can:
+  - [Integrate third-party tools](https://docs.gitlab.com/ee/development/integrations/secure.html) (open-source or proprietary) using our [documented, open report format](https://docs.gitlab.com/ee/development/integrations/secure.html#report).
+  - Document your request by opening an issue or commenting on an existing issue in [epic 297](https://gitlab.com/groups/gitlab-org/-/epics/297).
+- **More analyzer consolidations:** We are not currently focusing on consolidating more analyzers into Semgrep-based scanning with [GitLab-managed rules](https://docs.gitlab.com/ee/user/application_security/sast/rules.html#source-of-rules).
+  - We recently completed work to consolidate scanning coverage from many language-specific scanners to Semgrep-based scanning. This provides a simpler, more consistent operational experience; allows GitLab to directly manage rules; and makes scans run faster.
+  - We released these changes as part of [GitLab 17.0](https://docs.gitlab.com/ee/update/deprecations.html#sast-analyzer-coverage-changing-in-gitlab-170), [GitLab 16.0](https://docs.gitlab.com/ee/update/deprecations.html#sast-analyzer-coverage-changing-in-gitlab-160), and [GitLab 15.4](https://docs.gitlab.com/ee/update/deprecations.html#sast-analyzer-consolidation-and-cicd-template-changes).
+  - The remaining analyzers cover less-commonly-used languages that we cannot immediately convert due to technical limitations.
+
+## Get involved
+
+You can contribute to where GitLab SAST goes next by:
+
+- Commenting or contributing to existing [SAST issues](https://gitlab.com/gitlab-org/gitlab/-/issues/?sort=created_date&state=opened&label_name%5B%5D=Category%3ASAST) in the public `gitlab-org/gitlab` issue tracker.
+- If you don't see an issue that matches, filing [a new issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new?issuable_template=Feature%20Proposal%20-%20basic).
+  - Post a comment that says `@gitlab-bot label ~"group::static analysis" ~"Category:SAST"` so your issue lands in our triage workflow.
+- If you're a GitLab customer, [contacting Support](https://about.gitlab.com/support/) or discussing your needs with your account team.
+
+## Page updates
+
+| | |
+| --- | --- |
+| Stage | [Application Security Testing](/direction/application_security_testing/) |
+| Content Last Reviewed | 2025-02-18 |

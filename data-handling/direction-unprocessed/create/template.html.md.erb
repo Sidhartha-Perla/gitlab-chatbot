@@ -1,0 +1,106 @@
+---
+layout: markdown_page
+title: "Product Stage Vision - Create"
+description: "Discover GitLab’s roadmap for creation features, empowering developers with advanced tools for seamless software development and collaboration."
+---
+
+## On this page
+{:.no_toc}
+
+- TOC
+{:toc}
+
+Content last reviewed 2025-03-12
+
+<%= devops_diagram(["Create"]) %>
+
+## Stage Overview
+
+<%= partial("direction/create/templates/overview") %>
+
+### Groups
+
+The Create stage is made up of one DevOps stage, Create, and five groups including:
+
+* Code Creation
+* Code Review
+* Editor Extensions
+* Remote Development
+* Source Code
+
+### Resourcing and Investment
+
+The existing team members for the Create stage can be found in the links below:
+
+* [Code Creation](https://handbook.gitlab.com/handbook/engineering/development/dev/create/code-creation/)
+* [Code Review](https://handbook.gitlab.com/handbook/engineering/development/dev/create/code-review/)
+   * [BE](https://handbook.gitlab.com/handbook/engineering/development/dev/create/code-review/backend/)
+   * [FE](https://handbook.gitlab.com/handbook/engineering/development/dev/create/code-review/frontend/)
+* [Editor Extensions](https://handbook.gitlab.com/handbook/engineering/development/dev/create/editor-extensions/)
+* [Remote Development](https://handbook.gitlab.com/handbook/engineering/development/dev/create/remote-development/)
+* Source Code
+   * [BE](https://handbook.gitlab.com/handbook/engineering/development/dev/create/source-code-be/)
+   * [FE](https://handbook.gitlab.com/handbook/engineering/development/dev/create/create-source-code-fe)
+
+## 3 Year Stage Themes
+<%= partial("direction/create/templates/themes") %>
+
+## 3 Year Strategy
+
+<%= partial("direction/create/templates/strategy") %>
+
+## 1 Year Plan
+
+<%= partial("direction/create/templates/plan") %>
+
+## Target Audience
+
+GitLab identifies who our DevSecOps application is built for utilizing the following categorization. We list our view of who we will support when in priority order.
+* 🟩 - Targeted with strong support
+* 🟨 - Targeted but incomplete support
+* ⬜️ - Not targeted but might find value
+
+### Today
+
+1. 🟩 [Software Developers](https://handbook.gitlab.com/handbook/product/personas/#sasha-software-developer)
+1. 🟩 [Development Team Leads](https://handbook.gitlab.com/handbook/product/personas/#delaney-development-team-lead)
+1. 🟩 [Software Engineer in Test](https://handbook.gitlab.com/handbook/product/personas/#simone-software-engineer-in-test)
+1. 🟩 [DevOps Engineers](https://handbook.gitlab.com/handbook/product/personas/#devon-devops-engineer)
+1. 🟨 [Application Development Director](https://handbook.gitlab.com/handbook/product/personas/#dakota-application-development-director)
+1. 🟨 [System Administrator](https://handbook.gitlab.com/handbook/product/personas/#sidney-systems-administrator)
+1. 🟨 [Security Operations Engineers](https://handbook.gitlab.com/handbook/product/personas/#alex-security-operations-engineer)
+1. ⬜️ [Application Ops](https://handbook.gitlab.com/handbook/product/personas/#allison-application-ops)
+1. ⬜️ [Platform Engineer](https://handbook.gitlab.com/handbook/product/personas/#priyanka-platform-engineer)
+1. ⬜️ [Compliance Managers](https://handbook.gitlab.com/handbook/product/personas/#cameron-compliance-manager)
+
+### Medium Term (1-2 years)
+
+1. 🟩 [Software Developers](https://handbook.gitlab.com/handbook/product/personas/#sasha-software-developer)
+1. 🟩 [Development Team Leads](https://handbook.gitlab.com/handbook/product/personas/#delaney-development-team-lead)
+1. 🟩 [Software Engineer in Test](https://handbook.gitlab.com/handbook/product/personas/#simone-software-engineer-in-test)
+1. 🟩 [DevOps Engineers](https://handbook.gitlab.com/handbook/product/personas/#devon-devops-engineer)
+1. 🟩 [Application Development Director](https://handbook.gitlab.com/handbook/product/personas/#dakota-application-development-director)
+1. 🟩 [System Administrator](https://handbook.gitlab.com/handbook/product/personas/#sidney-systems-administrator)
+1. 🟨 [Security Operations Engineers](https://handbook.gitlab.com/handbook/product/personas/#alex-security-operations-engineer)
+1. 🟨 [Application Ops](https://handbook.gitlab.com/handbook/product/personas/#allison-application-ops)
+1. 🟨 [Platform Engineer](https://handbook.gitlab.com/handbook/product/personas/#priyanka-platform-engineer)
+1. 🟨 [Compliance Managers](https://handbook.gitlab.com/handbook/product/personas/#cameron-compliance-manager)
+
+## Categories in Create
+
+<%= partial("direction/categories-content", :locals => { :stageKey => "create" }) %>
+
+## Jobs to be Done
+
+<%= partial("direction/jtbd-list", locals: { stage_key: "Create" }) %>
+<%= partial("direction/jtbd-list", locals: { stage_key: "Source_Code_Management" }) %>
+
+## Pricing
+
+<%= partial("direction/create/templates/pricing") %>
+
+## Upcoming Releases
+
+<%= direction["all"]["all"] %>
+
+<%= partial("direction/other", :locals => { :stage => "create" }) %>

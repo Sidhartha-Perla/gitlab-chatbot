@@ -1,0 +1,12 @@
+
+In 16.10, we're extending capabilities within the compliance center for compliance managers to define, edit, and manage compliance frameworks by adding the ability to view security policies that are linked to a given framework. When utilizing the currently experimental security policy scoping feature, you can scope a policy granularly to enforce only on projects containing a particular compliance framework label, or define a specific set of projects to enforce.
+
+For policies scoped to a compliance framework label, we'll surface the policies within the framework view, giving clearer visibility and line of sight into the controls that are built directly into GitLab to enforce compliance and security requirements - especially those relevant to DevSecOps.
+
+Additionally, we'll be building a workflow to aide users of compliance pipelines in migrating and leveraging the new experimental feature "pipeline execution action" within scan execution policies. This new policy feature will enable enforcement of custom CI yaml across development projects, while also providing more tools and logic for ensuring compliance and global enforcement, without the extra hassle. This will be a logical step and improvement of our capabilities for compliance pipelines, while also better organizing our compliance vs policy features for separation of concerns:
+
+- Our compliance features are focusing on improving visibility, observability, and tools for providing evidence of compliance to auditors.
+- Our policies features are enabling controls that can be instantiated in GitLab to override, enforce, prevent, and block behaviors that are idenfied as a risk, ensuring our DevSecOps lifecyle is bullet-proof for security and compliance.
+
+These features work hand in hand to close the loop on security and compliance.
+

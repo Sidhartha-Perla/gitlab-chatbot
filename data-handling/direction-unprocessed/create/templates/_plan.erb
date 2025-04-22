@@ -1,0 +1,33 @@
+### What we recently completed
+
+The Create stage has been actively delivering updates to help your development teams collaborate faster and more effectively. Here are some highlights from recent releases:
+
+- [Workspace extensions now support proposed APIs](https://gitlab.com/gitlab-org/gitlab/-/issues/514741) - Workspace extensions now support enabling proposed APIs, improving compatibility and reliability in production environments. This update allows extensions that depend on proposed APIs to run without errors, including critical development tools like the Python Debugger.
+- [Add project files to Duo Chat in VS Code and JetBrains IDEs](https://gitlab.com/groups/gitlab-org/editor-extensions/-/epics/97) - Add your project files directly to Duo Chat in VS Code and JetBrains to unlock more powerful, context-aware AI assistance.
+- [Workspaces container support with Sysbox](https://gitlab.com/gitlab-org/gitlab/-/issues/452464) - GitLab workspaces now supports building and running containers directly in your development environment. When your workspace runs on a Kubernetes cluster configured with Sysbox, you can build and run containers without additional configuration.
+- [Create workspaces without a custom devfile](https://gitlab.com/groups/gitlab-org/-/epics/14644) - GitLab now provides you with a default file that includes common development tools. This enhancement removes configuration barriers, enables you to create a workspace quickly from any project, includes common development tools pre-configured and ready to use, and lets you focus on development instead of configuration.
+- [Use roles to define project members as Code Owners](https://gitlab.com/gitlab-org/gitlab/-/issues/282438) - You can now use roles as Code Owners in your CODEOWNERS file to manage role-based expertise and approvals more efficiently.
+- [New `/help` command in GitLab Duo Chat](https://gitlab.com/gitlab-org/gitlab/-/issues/462122) - A new, powerful feature for Duo Chat! Just type /help in the chat message field to explore everything it can do for you.
+- [Merge at a scheduled date and time](https://gitlab.com/gitlab-org/gitlab/-/issues/14380) - When you create or edit a merge request you can specify a merge after date. This date will be used to prevent the merge request from being merged until it has passed. Using this new capability with our previously released improvements to auto-merge gives you the flexibility to schedule merge requests to merge in the future.
+- [Automated Repository X-Ray](https://gitlab.com/groups/gitlab-org/-/epics/14100) - When a new commit is pushed to the default branch of your project, Repository X-Ray automatically triggers a background job that scans and parses the applicable configuration files in your repository.
+
+
+### What we are currently working on
+
+- Source Code Management - [Branch rules for squash settings](https://gitlab.com/groups/gitlab-org/-/epics/15327) - This is the next iteration of the larger effort to establish a framework for source code rules. Now that rules are co-located, we are working on enabling the editing of additional settings from that interface.
+- Code Review Workflow - [Duo Code Review](https://gitlab.com/groups/gitlab-org/-/epics/13008) and [Improved DevSecOps experience in merge requests](https://gitlab.com/groups/gitlab-org/-/epics/13808)
+- GitLab CLI - [Stacked Diffs via the GitLab CLI](https://gitlab.com/groups/gitlab-org/-/epics/12025)
+- Workspaces - [Workspaces Settings Configuration Infrastructure in GitLab](https://gitlab.com/groups/gitlab-org/-/epics/14186)
+- Web IDE - [Enable the Web IDE Extension Marketplace for Self-managed](https://gitlab.com/groups/gitlab-org/-/epics/11770) and [Hosting the Web IDE on a new domain or subdomain](https://gitlab.com/groups/gitlab-org/-/epics/11972)
+- Editor Extensions - [Remote SAST Scanning in VS Code](https://gitlab.com/groups/gitlab-org/-/epics/14984) and [Adding Duo Quick Chat into the Visual Studio extension](https://gitlab.com/groups/gitlab-org/editor-extensions/-/epics/94).
+
+### What is next for us
+
+The Create stage will focus on the following this year: 
+- Source Code Management - [Branch rules for Merge Methods](https://gitlab.com/groups/gitlab-org/-/epics/15327)
+- Code Review Workflow -  [Duo Code Review](https://gitlab.com/groups/gitlab-org/-/epics/9577)
+- GitLab CLI - Expand AI capabilities of glab ask - The GitLab CLI currently supports asking questions about how to accomplish some tasks with the usage of git. We will look for more ways to expand this and potentially leverage GitLab Duo Chat in the future.
+- Workspaces - [Support additional editors for workspaces](https://gitlab.com/groups/gitlab-org/-/epics/10635) and [Automatically suspend a workspace after a period of inactivity](https://gitlab.com/groups/gitlab-org/-/epics/10710)
+- Web IDE - [Search across all files in a project from within the Web IDE](https://gitlab.com/groups/gitlab-org/-/epics/9466) and [1st Class Editing Experiences for GitLab features](https://gitlab.com/groups/gitlab-org/-/epics/2707)
+- Editor Extensions -  [Deepen the integration with the core DevSecOps workflows of GitLab](https://gitlab.com/groups/gitlab-org/-/epics/9679) and [Continue to improve the usability, quality, and maturity of GitLab Duo features](https://gitlab.com/groups/gitlab-org/editor-extensions/-/epics/96)
+

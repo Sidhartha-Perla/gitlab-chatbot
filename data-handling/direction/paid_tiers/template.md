@@ -1,0 +1,31 @@
+---
+layout: markdown_page
+title: Upcoming features for paid tiers
+description: "Learn about GitLab's paid tiers, offering advanced features and tools to help teams of all sizes optimize their software development lifecycle."
+---
+
+The list is an outline of Direction issues coming up in each paid [tier](/pricing/). These are **tentpole features** -- the most important features
+of upcoming releases -- and don't include most contributions from volunteers
+outside the company. You can also view features organized by [upcoming releases](/upcoming-releases/) or [past releases](/releases/).
+
+Note that we often move things around, do things that are not listed, and cancel
+things that _are_ listed. Some of the things listed here might not ever be in
+GitLab. This is our best estimate of where new features will land, but is in no
+way definitive.
+
+## Paid tiers
+
+### Premium
+
+Premium features are only available to Premium (and Ultimate) subscribers.
+
+
+
+### Ultimate
+
+Ultimate is for organizations that have a need to build secure, compliant
+software and that want to gain visibility of - and be able to influence - their
+entire organization from a high level. Ultimate features are only be available
+to Ultimate subscribers.
+
+

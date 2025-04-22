@@ -1,0 +1,113 @@
+---
+layout: markdown_page
+title: "Group Direction - AI Framework"
+description: "Building common tools to support GitLab teams integrating AI/ML technologies"
+canonical_path: "/direction/ai-powered/ai_framework/"
+---
+
+## On this page
+{:.no_toc}
+
+- TOC
+{:toc}
+
+## Overview
+
+The AI Framework group is focused on accelerating the adoption and innovation of advanced AI/ML technologies while ensuring quality. We develop tools for engineers and product teams to enhance their product offerings, enabling them to focus on customer needs and create solutions best suited to their use cases.
+
+AI is evolving rapidly, and the AI Framework group is dedicated to leading the way with innovative approaches to improve efficiencies across the entire DevSecOps cycle. Our [Abstraction Layer](/direction/ai-powered/ai_framework/ai_abstraction_layer) and [AI Gateway](/direction/ai-powered/ai_framework/ai_gw) are designed to provide a plug-and-play infrastructure, bringing AI as a service to the GitLab platform.
+
+### Goals
+
+We aim to:
+1. Increase the velocity of AI-powered feature development.
+2. Enhance the quality of AI-powered features in the platform.
+3. Drive the adoption of GitLab as a comprehensive platform.
+
+## Vision
+
+We aim to build reliable, scalable AI infrastructure with unified testing, deployment, and monitoring capabilities, thereby supporting GitLab's AI feature teams through consolidated tooling.
+
+The AI Framework team lays the foundation for GitLab's AI initiatives by developing and maintaining robust, scalable infrastructure. This infrastructure supports unified testing, deployment, and monitoring, ensuring AI models are integrated, validated, and optimized efficiently. By consolidating tools and processes, the AI Framework team accelerates the development of AI-powered features and ensures GitLab's infrastructure scales alongside increasing AI demands.
+
+## Themes
+
+### AI Gateway as a Tool to Increase Privacy and Performance
+
+The AI Gateway is a standalone service that provides access to AI features to all GitLab users, whether using self-managed, dedicated, or GitLab.com instances.
+
+**Key Features:**
+- **Global Reach:** Handles traffic from a globally reachable route (cloud.gitlab.com/ai/*), directing it to AI providers and models.
+- **Future Flexibility:** Potential for regional or customer-specific gateways if needed.
+- **Scalability:** Easier to scale compared to GitLab Rails, as it is a stateless service.
+- **Direct Connections:** Future plans include direct client connections to improve request latency, with optional backward compatibility.
+- **Stable API:** Single-purpose, version-agnostic endpoints designed for future scalability, composability, and security.
+- **Protocol:** Uses a JSON-based API for communication, with REST+JSON chosen for its compatibility with existing and future features.
+
+### Abstraction Layer for Enhanced AI Integration
+
+The Abstraction Layer standardizes and simplifies the integration of AI/ML technologies within GitLab, providing an extendable GraphQL API called `aiAction`.
+
+**Key Features:**
+- **Standardized API:** Provides a consistent interface for different AI actions, such as code suggestions and chat features.
+- **Modular Design:** Supports the addition of new AI actions by extending the `aiAction` input with key/value pairs.
+- **Secure and Scalable:** Ensures secure access to AI features while being scalable to accommodate new functionalities and models.
+
+## FY26 Strategic Goals & Objectives
+
+- **Goal 1: Model Flexibility**
+  - Allow teams to easily integrate, test, and switch between different AI models seamlessly.
+- **Goal 2: Support Model Validation**
+  - Improve model validation by building on the Consolidated Evaluation Framework (CEF).
+  - Unify ELI5 and the Prompt Library to provide comprehensive and automated model testing.
+- **Goal 3: AI Settings Management**
+  - Centralize and streamline AI configuration and management to make feature management simpler for users.
+- **Goal 4: AI Infrastructure Development & Scalability**
+  - Enhance the AI Gateway and other infrastructure components to achieve high availability, scalability, and efficient context management.
+- **Goal 5: Stage-Level Metrics & Dashboards**
+  - Develop accurate, comprehensive dashboards to track key metrics and operational performance.
+
+### Quarterly Roadmap Overview
+
+#### Q1: Establishing the Foundation
+
+- Initialize model flexibility improvements
+- Begin unification of ELI5 and Prompt Library
+- Complete AI Settings Management
+- Establish stage-level metrics dashboards
+- Start Discussion Summary enhancement project
+
+#### Q2: Building on Momentum
+
+- Complete Model Flexibility initiatives
+- Enhance CEF with automated validation
+- Advance AI Gateway scalability
+- Implement advanced Discussion Summary features
+
+#### Q3: Scaling and Refining Infrastructure
+
+- Optimize infrastructure performance
+- Implement Context Management Framework
+- Integrate user feedback for Discussion Summary
+- Refine multi-provider strategies
+
+#### Q4: Finalization and Future-Proofing
+
+- Finalize infrastructure optimization
+- Complete Context Management Framework
+- Document best practices and blueprints
+- Conclude Discussion Summary enhancements
+
+## Categories
+
+This group consists of the following categories:
+- **[AI Gateway](/direction/ai-powered/ai_framework/ai_gw):** The AI Gateway is a standalone service providing AI features to all GitLab users.
+- **[Abstraction Layer](/direction/ai-powered/ai_framework/ai_abstraction_layer):** An AI Architecture to standardize and abstract AI/ML technologies within GitLab.com - **[Duo Context Enrichment]:** Increase GitLab Duo quality by enhancing the AI's understanding of user inputs and project context to provide more accurate and relevant assistance within the GitLab ecosystem.
+
+## Team HQ
+
+- [AI Framework Team HQ](https://gitlab.com/groups/gitlab-org/-/epics/11403)
+
+*Last Reviewed: 2024-11-19  
+Last Updated: 2024-11-19*
+</p>

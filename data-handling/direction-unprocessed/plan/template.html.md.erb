@@ -1,0 +1,77 @@
+---
+layout: markdown_page
+title: Product Stage Direction - Plan
+description: "The Plan stage enables teams to effectively plan features and projects in a single application"
+canonical_path: "/direction/plan/"
+---
+
+Content last reviewed on 2024-10-23
+
+- TOC
+{:toc}
+
+<p align="center">
+    <font size="+2">
+        <b>Enable teams to effectively plan and execute work in a single application</b>
+    </font>
+</p>
+
+<%= partial("direction/plan/templates/overview") %>
+
+<%= devops_diagram(["Plan"]) %>
+
+## Stage Overview
+
+The Plan Stage provides tools for teams to manage and optimize their work, track operational health and measure outcomes. As an end-to-end DevSecOps platform, GitLab is uniquely positioned to deliver a planning suite that enables business leaders to drive their vision and DevSecOps teams to deliver value while improving how they work. The unification of the DevSecOps process allows GitLab to interlink data across every stage of development, from ideation to value delivered to customers.
+
+### Group and Categories
+
+<%= partial("direction/plan/templates/categories") %>
+
+## 3 Year Stage Themes
+
+<%= partial("direction/plan/templates/themes") %>
+ 
+## 3 Year Strategy
+
+<%= partial("direction/plan/templates/strategy") %>
+
+## 1 Year Plan
+
+### What We Recently Completed
+
+<%= partial("direction/plan/project_management/team_planning/recent_accomplishments") %>
+
+* Improvements to the rich text editor - Following the initial rollout in GitLab 16.2, we continue to make improvements to the rich text editor. In 17.1, we introduced [draggable media in the rich text editor](https://gitlab.com/gitlab-org/gitlab/-/issues/452233) and [downscaling pasted images](https://gitlab.com/gitlab-org/gitlab/-/issues/419913).
+* [Real-time boards (17.1)](https://gitlab.com/gitlab-org/gitlab/-/issues/468187) - Changes you make in the sidebar will instantly appear on the board itself, no more refreshing required. This reactive boards experience streamlines your workflow, allowing you to quickly make updates while seeing them reflected in real-time.
+<%= partial("direction/plan/project_management/team_planning/recent_accomplishments") %>
+<%= partial("direction/plan/value_stream_management/templates/recent") %>
+<%= partial("direction/plan/dora_metrics/templates/recent") %>
+
+
+### What We Are Currently Working On
+
+* Migrating [epics to the work items](https://gitlab.com/groups/gitlab-org/-/epics/9290) framework will allow us to eventually bring more consistency with issues and address long-standing requests, like [assignees on epics](https://gitlab.com/groups/gitlab-org/-/epics/4231).
+* [Wiki Connectivity](https://gitlab.com/groups/gitlab-org/-/epics/12835) - Allow users to connect their Wiki knowledge base with the rest of the DevSecOps lifecycle. 
+* [Pages Multi-Version Support](https://gitlab.com/groups/gitlab-org/-/epics/10914) - Currently a project can have only a single version of a GitLab Pages site. This make it hard for customers to try new ideas on their sites without changing the only version of the site. Customers need a way to preview changes or have multiple environments for their GitLab Pages sites to make it possible to validate changes before deploying their site.
+<%= partial("direction/plan/project_management/team_planning/current_focus") %>
+<%= partial("direction/plan/value_stream_management/templates/current") %>
+<%= partial("direction/plan/dora_metrics/templates/current") %>
+
+<%= partial("direction/plan/templates/next") %>
+
+### Cross-Stage Initiatives
+
+<%= partial("direction/plan/templates/crossstage") %>
+
+### Target audience
+
+<%= partial("direction/plan/templates/target_audience") %>
+
+### Pricing
+
+<%= partial("direction/plan/templates/pricing") %>
+
+An example of what the end result data model and pricing could look like based on these pricing principles:
+
+![Work Items Hierarchy](/images/direction/plan/workitemhierarchy.png)

@@ -1,0 +1,89 @@
+---
+layout: markdown_page
+title: "Security Insight Priorities, 17.0-17.11"
+description: "This page outlines GitLab's Security Insights priorities for 17.0-17.11."
+---
+
+- TOC
+{:toc}
+
+
+## Purpose
+This page is for high-level prioritization of the secureity insights team for 17.0-17.11. It primarily includes feature/product items and is not a comprehensive list of everything that will be worked on such as bugs, implementation issues, documentation, or technical debt. It is not intended as a replacement or alternative for our issue boards. It is meant as an easily consumable single view of the main in-progress and upcoming work items for the Security Insights group. It also allows mixing Epics and Issues in a single list.  The tables come from the [security_insights.yml](https://gitlab.com/gitlab-com/www-gitlab-com/-/blob/master/data/product_priorities/security_insights_17.yml) file.
+This list is not a guarantee of timing or order of delivery. Rather, use this as a guide to see the top items we are working on and will be in the near future. The list purposefully does not extend out beyond a year to minimize a false sense of priority.
+
+## Goals
+1. Leadership has a single, comprehensive view of the application's security posture and risk exposure.  They can quickly answer their questions in GitLab's Vulnerability Report, Dependency List and Security Dashboards.
+1. Teams can track vulnerabilities across multiple branches and releases and understand declared vs. transitive dependencies.
+1. Developers are notified when new vulnerabilities arise and know how to get started mitigating vulnerabilities before involving security teams.
+
+## Completed Work
+Feature Work
+- 2024-06-18: [GA Vulnerability Explanation](https://gitlab.com/groups/gitlab-org/-/epics/10642)
+- 2024-06-05: [Implement Filtered Search Component on the Vulnerability Report](https://gitlab.com/groups/gitlab-org/-/epics/13339)
+- 2024-10-17: [Filter by Component on the Dependency List](https://gitlab.com/groups/gitlab-org/-/epics/12652)
+- 2024-10-17: [Pipeline Security Listing Migration and Enhancements](https://gitlab.com/groups/gitlab-org/-/epics/8478)
+
+Maintenance & Technical Debt
+- 2024-08-19: [Group Level Vulnerability Report Performance](https://gitlab.com/groups/gitlab-org/-/epics/12372)
+- 2024-08-07: [Group Level Dependency List Performance](https://gitlab.com/groups/gitlab-org/-/epics/12371)
+- 2024-04-22: [Remove `admin_vulnerability` from developers](https://gitlab.com/groups/gitlab-org/-/epics/412693)
+- 2024-04-22: [[Feature flag] Rollout of `project_level_sbom_occurrences`](https://gitlab.com/gitlab-org/gitlab/-/issues/434371)
+- 2024-10-17: [Cells 1.0](https://gitlab.com/groups/gitlab-org/-/epics/13087)
+- 2024-10-17: [Delete vulnerability_occurrence_pipelines table](https://gitlab.com/groups/gitlab-org/-/epics/11241)
+
+## Priorities
+### AI
+
+| Priority | Name | Target release |
+| ------ | ------ | ------ |
+<% data.product_priorities.security_insights_17.priorities.select { |item| item.type == '~"type::feature"' && item.category == 'AI' }.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>
+
+### Projects
+
+#### Vulnerability Management
+
+| Priority | Name | Target release |
+| ------ | ------ | ------ |
+<% data.product_priorities.security_insights_17.priorities.select { |item| item.type == '~"type::feature"' && item.category == 'Vulnerability Management' }.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>
+
+#### Dependency Management
+
+| Priority | Name | Target release |
+| ------ | ------ | ------ |
+<% data.product_priorities.security_insights_17.priorities.select { |item| item.type == '~"type::feature"' && item.category == 'Dependency Management' }.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>
+
+#### Technical debt and deprecations
+
+| Priority | Name | Target release |
+| ------ | ------ | ------ |
+<% data.product_priorities.security_insights_17.priorities.select { |item| item.type == '~"type::maintenance"' && item.category != 'Performance' }.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>
+
+### Performance and Optimization
+
+| Priority | Name | Target release |
+| ------ | ------ | ------ |
+<% data.product_priorities.security_insights_17.priorities.select { |item| item.category == 'Performance'  }.each.with_index do |priority, index| %>
+| <%= index + 1 %> | [<%= priority.name %>](<%= priority.url %>) | `<%= priority.target_release.presence || "TBD" %>`  |
+<% end %>
+
+## Page Updates
+
+| | |
+| --- | --- |
+| Stage | [Govern](https://about.gitlab.com/direction/software_supply_chain_security/) |
+| Content Last Reviewed | `2024-08-30` |
+| Content Last Updated  | `2024-08-30` |
+
+## Learn More
+Security Insights is a group in the Govern stage.  There are two categories in the group and details on the direction can be viewed on the following category pages:
+1. [Vulnerability Management](https://about.gitlab.com/direction/security_risk_management/security-insights/vulnerability_management/)
+1. [Dependency Management](https://about.gitlab.com/direction/security_risk_management/security-insights/dependency_management/)
