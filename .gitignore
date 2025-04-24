@@ -1,6 +1,7 @@
 gitlab-ragbot-venv
 .DS_Store
 
+.env
 chroma_db
 data-handling/test.py
 test.ipynb
