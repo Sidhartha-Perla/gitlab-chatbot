@@ -1,5 +1,6 @@
 gitlab-ragbot-venv
-data-handling/chroma_db
-data-handling/test.py
-
 .DS_Store
+
+chroma_db
+data-handling/test.py
+test.ipynb

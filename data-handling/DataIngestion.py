@@ -1,12 +1,12 @@
-import os
-import re
 import yaml
+import gc
 from pathlib import Path
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from chromadb import HttpClient
 
 
 
@@ -21,7 +21,6 @@ def create_source_url(base_url, file_path):
     else:
         return (base_url + "/" + str(file_path.parent).lstrip("/") + "/" + str(file_path.stem))
 
-
 def extract_metadata_and_content(markdown_text):
     metadata = {}
     content = markdown_text
@@ -29,11 +28,11 @@ def extract_metadata_and_content(markdown_text):
         try:
             _, front_matter, body = markdown_text.split('---', 2)
             metadata = yaml.safe_load(front_matter)
-            filtered_metadata = {k: v for k, v in metadata.items() if k in ("title", "description")}
+            metadata = {k: v for k, v in metadata.items() if k in ("title", "description")}
             content = body.strip()
         except Exception as e:
             print("\033[91mWarning\033[0m: Failed to parse metadata:", e)
-    return filtered_metadata, content
+    return metadata, content
 
 def split_into_chunks(content, metadata, base_url, file_path, chunk_size=1000, chunk_overlap=100):
     headers_to_split_on = [
@@ -69,8 +68,11 @@ def split_into_chunks(content, metadata, base_url, file_path, chunk_size=1000, c
     return documents
 
 
-def ingest_site_data(base_url, source_dir, vector_store):
+def ingest_site_data(base_url, source_dir, vector_store, batch_size=15):
     source_dir = Path(source_dir)
+    batch_documents = []
+    processed_count = 0
+    
     for file_path in source_dir.rglob("*.md"):
         if file_path.is_file():
             print("Processing: ", file_path)
@@ -83,13 +85,31 @@ def ingest_site_data(base_url, source_dir, vector_store):
             # Split the content
             print("-Chunking file content")
             chunked_documents = split_into_chunks(content, metadata, base_url, file_path)
-            # Chunk embedding + storing
-            print("-Embedding and storing chunks")
+            
+            # Add to batch
             if chunked_documents:
                 clean_documents = filter_complex_metadata(chunked_documents)
-                vector_store.add_documents(documents=clean_documents)
+                batch_documents.extend(clean_documents)
+                processed_count += 1
             else:
                 print(f"Skipping file: no content chunks generated")
+            
+            # Process batch when it reaches the limit
+            if processed_count == batch_size:
+                print(f"Embedding and storing batch of {len(batch_documents)} chunks")
+                vector_store.add_documents(documents=batch_documents)
+
+                batch_documents = []
+                processed_count = 0
+
+                # Force garbage collection
+                gc.collect()
+    
+    # Process any remaining documents
+    if batch_documents:
+        print(f"-Embedding and storing final batch of {len(batch_documents)} chunks")
+        vector_store.add_documents(documents=batch_documents)
+        print(f"Total processed: {processed_count} chunks")
 
 
 
@@ -97,12 +117,21 @@ print("\033[1mStarting data ingestion\033[0m")
 
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 print("\033[1mUsing model 'all-MiniLM-L6-v2' for embedding data\033[0m")
+
+# Create HTTP client to connect to the Chroma server
+chroma_client = HttpClient(
+    host="localhost",
+    port=8000
+)
+
+# Create vector store using the client
 vector_store = Chroma(
-        collection_name="gitlab_data",
-        persist_directory="./chroma_db",
-        embedding_function=embedding_model
-    )
+    client=chroma_client,
+    collection_name="gitlab_data",
+    embedding_function=embedding_model
+)
 print("\033[1mCreated Vector store for storing data\033[0m")
 
-ingest_site_data("https://handbook.gitlab.com", "./handbook", vector_store)
-ingest_site_data("https://about.gitlab.com", "./direction", vector_store)
+# Process the files in batches
+ingest_site_data("https://handbook.gitlab.com", "./handbook", vector_store, batch_size=50)
+ingest_site_data("https://about.gitlab.com", "./direction", vector_store, batch_size=50)
