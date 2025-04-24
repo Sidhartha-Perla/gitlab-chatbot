@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 from typing import List, TypedDict
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -9,7 +10,6 @@ from langchain import hub
 from langgraph.graph import START, StateGraph
 from langchain_core.documents import Document
 from langchain.prompts import PromptTemplate
-
 
 class State(TypedDict):
         question: str
@@ -24,7 +24,7 @@ class Agent:
     prompt_text = (Path(__file__).resolve().parent / "prompts/system_prompt.txt").read_text(encoding="utf-8")
     prompt = PromptTemplate.from_template(prompt_text)
     
-    def __init__(self, vector_store: Chroma, google_api_key: str, initial_state: State):
+    def __init__(self, vector_store: Chroma, google_api_key: str, initial_state: State = None):
         self.vector_store = vector_store
         self.google_api_key = google_api_key
         self.llm = ChatGoogleGenerativeAI(
@@ -36,7 +36,9 @@ class Agent:
             google_api_key=google_api_key
         )
         self.graph = self.build_graph()
-        self.current_state = {
+
+        if initial_state is None:
+            self.current_state = {
             "question": "",
             "context": [],
             "answer": "",
@@ -44,7 +46,9 @@ class Agent:
             "chat_summary": "No conversation yet.",
             "enhanced_question": "",
             "is_followup": False
-        }
+            }
+        else:
+            self.current_state = initial_state
     
     def store_interaction(self, state: State):
         state["chat_history"].append({
@@ -56,9 +60,8 @@ class Agent:
     def update_summary(self, state: State):
         last_question = state["question"]
         last_answer = state["answer"]
-        current_summary = state["chat_summary"]
         
-        if current_summary != "No conversation yet.":
+        if len(state["chat_history"]) > 0:
             summary_messages = [
                 {
                     "role": "system",
@@ -72,7 +75,7 @@ class Agent:
                 {
                     "role": "user",
                     "content": f"""Here is the current conversation summary:
-                    {current_summary}
+                    {state["chat_summary"]}
                     
                     The latest interaction was:
                     User: {last_question}
@@ -123,10 +126,12 @@ class Agent:
                     1. Analyze the conversation summary and the new follow-up question
                     2. Since this is a follow-up question, augment the query with relevant keywords from previous interactions, based on the conversation summary.
                     3. Add any other search terms that would help in retrieving relevant documents
-                    4. Generate an enhanced query that incorporates relevant context from previous interactions while preserving the user's intent.
+                    4. Generate an enhanced query that incorporates relevant context from previous interactions.
                     5. If there are multiple possible versions of the enhanced query, combine them into a single query.
-                    
-                    """
+                    6. If the question is vague or meta (e.g. "what did we talk about so far"), do not reject it. Instead, produce a lightly rephrased or echoed version of the question that can still be used in a search, even if it is imprecise.
+                        
+                    Important: Never refuse to enhance a query. Always return some enhanced version, even if minimal.
+                    Give only the enhanced query for search. DO NOT repeat the user query"""
                 },
                 {
                     "role": "user", 
@@ -136,7 +141,7 @@ class Agent:
                     And this follow-up question:
                     {state['question']}
 
-                    Enhance the search query to improve document retrieval while maintaining the original intent of the question
+                    Enhance the search query to improve document retrieval.
                     """
                 }
             ]
@@ -149,12 +154,13 @@ class Agent:
                     2. Identify important keywords that would help in retrieving relevant documents
                     3. Create an enhanced version of the query that will improve document retrieval
                     4. If there are multiple possible versions of the enhanced query, combine them into a single query.
-                    
-                    Do not change the original meaning of the query, just enhance it with better search terms."""
+                    5. If the question is vague or meta (e.g. "Hi", "what did we talk about so far"), do not reject it. Instead, produce a lightly rephrased or echoed version of the question that can still be used in a search, even if it is imprecise.
+
+                    Give only the enhanced query for search. DO NOT repeat the user query"""
                 },
                 {
                     "role": "user", 
-                    "content": f"Enhance this search query to improve document retrieval while maintaining the original intent of the question: {state['question']}"
+                    "content": f"Enhance this user query to improve document retrieval while maintaining the original intent of the question: {state['question']}"
                 }
             ]
         
@@ -218,3 +224,24 @@ class Agent:
         self.current_state["question"] = query
         self.current_state = self.graph.invoke(self.current_state)
         return self.current_state["answer"]
+
+load_dotenv()
+
+embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+chroma_client = HttpClient(
+    host="localhost",
+    port=8000
+)
+
+vector_store = Chroma(
+    client=chroma_client,
+    collection_name="gitlab_data",
+    embedding_function=embedding_model
+)
+
+agent = Agent(vector_store, os.environ["GOOGLE_API_KEY"])
+
+while True:
+    query = input("Enter your query: ")
+    print("Response: " + agent.process_user_query(query))
