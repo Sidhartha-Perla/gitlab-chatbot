@@ -15,7 +15,6 @@ from app.config import (
     PROMPTS_DIR
 )
 
-
 class AgentFactory:
     def __init__(self):
         """Initialize shared resources"""

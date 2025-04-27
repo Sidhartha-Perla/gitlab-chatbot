@@ -55,7 +55,7 @@ class QueryResponse(BaseModel):
     session_id: str
 
 class MessagesResponse(BaseModel):
-    messages: List[dict]  # Changed from List[Dict] to List[dict] to match State
+    messages: List[dict]
     session_id: str
 
 # Dependency to ensure session exists

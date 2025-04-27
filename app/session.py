@@ -20,33 +20,23 @@ class SessionManager:
             key=SESSION_COOKIE_NAME,
             value=session_id,
             httponly=True,
-            max_age=SESSION_EXPIRY_MINUTES * 60,
             samesite="lax"
         )
+
+        self.update_session_access(session_id)
         
         return session_id
     
     def get_session_id(self, request: Request) -> Optional[str]:
         """Get session ID from request cookie"""
-        return request.cookies.get(SESSION_COOKIE_NAME)
+        session_id = request.cookies.get(SESSION_COOKIE_NAME)
+        self.update_session_access(session_id)
+        return session_id
     
     def update_session_access(self, session_id: str) -> None:
         """Update last access time for a session"""
         if session_id in self.sessions:
             self.last_access[session_id] = time.time()
-    
-    def get_session_data(self, session_id: str) -> Optional[Dict]:
-        """Get session data for a session ID"""
-        if session_id in self.sessions:
-            self.update_session_access(session_id)
-            return self.sessions[session_id]
-        return None
-    
-    def set_session_data(self, session_id: str, key: str, value) -> None:
-        """Set data in a session"""
-        if session_id in self.sessions:
-            self.sessions[session_id][key] = value
-            self.update_session_access(session_id)
     
     def delete_session(self, session_id: str, response: Response) -> None:
         """Delete a session and clear cookie"""

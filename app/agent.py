@@ -111,6 +111,11 @@ class Agent:
     
     def enhance_query(self, state: State):
         if state["is_followup"]:
+            recent_history = ""
+            if len(state["chat_history"]) > 0:
+                for entry in state["chat_history"][-5:]:
+                    recent_history += f"User: {entry['question']}\nAssistant: {entry['answer']}\n\n"
+        
             messages = [
                 {
                     "role": "system",
@@ -129,6 +134,9 @@ class Agent:
                     "role": "user", 
                     "content": f"""Given this conversation summary:
                     {state['chat_summary']}
+
+                    And the recent conversation history:
+                    {recent_history}
                     
                     And this follow-up question:
                     {state['question']}
@@ -159,7 +167,7 @@ class Agent:
         enhanced_query_response = self.llm.invoke(messages)
         state["enhanced_question"] = enhanced_query_response.content
         return state
-    
+ 
     def retrieve(self, state: State):
         retrieved_docs = self.vector_store.similarity_search(
             state["enhanced_question"],
@@ -171,7 +179,7 @@ class Agent:
         docs_content = "\n\n".join(doc.page_content for doc in state["context"])
         history_text = ""
         if state["chat_history"]:
-            for i, entry in enumerate(state["chat_history"][-3:]):
+            for i, entry in enumerate(state["chat_history"][-5:]):
                 history_text += f"User: {entry['question']}\nAssistant: {entry['answer']}\n\n"
         
         if state["is_followup"]:
