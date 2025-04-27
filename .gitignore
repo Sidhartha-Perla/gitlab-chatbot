@@ -1,6 +1,7 @@
 venv
 .DS_Store
 gitlab-rag-bot.code-workspace
+app/__pycache__
 
 .env
 chroma_db
