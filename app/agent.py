@@ -20,14 +20,14 @@ class State(TypedDict):
         is_followup: bool
 
 class Agent:
-    prompt_text = (Path(__file__).resolve().parent / "prompts/system_prompt.txt").read_text(encoding="utf-8")
-    prompt = PromptTemplate.from_template(prompt_text)
     
-    def __init__(self, vector_store: Chroma, llm: ChatGoogleGenerativeAI, initial_state: State = None):
+    def __init__(self, vector_store: Chroma, llm: ChatGoogleGenerativeAI, prompt: PromptTemplate, initial_state: State = None):
         self.vector_store = vector_store
         
         self.graph = self.build_graph()
         self.llm = llm
+        
+        self.prompt = prompt
 
         if initial_state is None:
             self.current_state = {
@@ -219,35 +219,3 @@ class Agent:
     
     def get_messages(self):
         return self.current_state["chat_history"]
-
-"""
-load_dotenv()
-
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-
-chroma_client = HttpClient(
-    host="localhost",
-    port=8000
-)
-
-vector_store = Chroma(
-    client=chroma_client,
-    collection_name="gitlab_data",
-    embedding_function=embedding_model
-)
-
-
-llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash-001",
-            temperature=0,
-            max_tokens=None,
-            timeout=None,
-            max_retries=2,
-            google_api_key=os.environ["GOOGLE_API_KEY"]
-        )
-
-agent = Agent(vector_store, llm)
-
-while True:
-    query = input("Enter your query: ")
-    print("Response: " + agent.process_user_query(query))"""

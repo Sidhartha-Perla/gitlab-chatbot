@@ -4,13 +4,15 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.rate_limiters import InMemoryRateLimiter
+from langchain.prompts import PromptTemplate
 from app.agent import Agent, State
 from app.config import (
     CHROMA_HOST, 
     CHROMA_PORT, 
     COLLECTION_NAME, 
     EMBEDDING_MODEL, 
-    GOOGLE_API_KEY
+    GOOGLE_API_KEY,
+    PROMPTS_DIR
 )
 
 
@@ -33,12 +35,12 @@ class AgentFactory:
             embedding_function=self.embedding_model
         )
 
-        # Initialize in-memory rate limiter
+        """# Initialize in-memory rate limiter
         rate_limiter = InMemoryRateLimiter(
             requests_per_second=0.25,  # One request 4 seconds
             check_every_n_seconds=0.25,  # Wake up every 250 ms to check whether allowed to make a request,
             max_bucket_size=15,  # Maximum burst size.
-        )
+        )"""
 
         # Initialize llm client
         self.llm = ChatGoogleGenerativeAI(
@@ -48,8 +50,11 @@ class AgentFactory:
             timeout=None,
             max_retries=2,
             google_api_key=GOOGLE_API_KEY,
-            rate_limiter=rate_limiter
+            #rate_limiter=rate_limiter
         )
+
+        prompt_text = (PROMPTS_DIR/ "system_prompt.txt").read_text(encoding="utf-8")
+        self.prompt = PromptTemplate.from_template(prompt_text)
         
         # Agent cache
         self.agent_cache: Dict[str, Agent] = {}
@@ -71,6 +76,7 @@ class AgentFactory:
             self.agent_cache[session_id] = Agent(
                 vector_store=self.vector_store,
                 llm=self.llm,
+                prompt=self.prompt,
                 initial_state=initial_state
             )
         
