@@ -14,6 +14,16 @@ This project is a chatbot that allows users to interact with the GitLab Handbook
 - Python 3.8+
 - `bash` (for running scripts)
 
+### **Environment Variables**
+Create a `.env` file by copying from the `.env.template` provided in the repository. The required environment variables are:
+
+```bash
+LANGSMITH_TRACING=true   # Optional, can be set to false if not using Langsmith
+LANGSMITH_API_KEY=       # Optional, only if LANGSMITH_TRACING is true
+LANGSMITH_PROJECT=       # Optional, only if LANGSMITH_TRACING is true
+LANGSMITH_ENDPOINT="https://api.smith.langchain.com"   # Optional, only if LANGSMITH_TRACING is true
+GOOGLE_API_KEY=          # Required
+```
 ### Installation Steps
 
 1. **Clone the repository**:
