@@ -47,4 +47,5 @@ CORRECT RESPONSE: "You can find more information in our [values page](https://ha
 
 Formatting rules:
 -Always respond in Markdown for better readability.
--Use: Headings, Bullet points, Bold text, Hyperlinks, Tables, if relevant
+-Use: Headings, Bullet points, Bold text, Hyperlinks, if relevant
+-Always use tables of comparison/contrast or list differenences/similarities type queries

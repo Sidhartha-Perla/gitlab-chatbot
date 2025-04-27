@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse
 from pydantic import BaseModel
-from typing import Optional, Dict
+from typing import  List
 import logging
 from app.session import SessionManager
 from app.agent_factory import AgentFactory
@@ -54,6 +54,10 @@ class QueryResponse(BaseModel):
     answer: str
     session_id: str
 
+class MessagesResponse(BaseModel):
+    messages: List[dict]  # Changed from List[Dict] to List[dict] to match State
+    session_id: str
+
 # Dependency to ensure session exists
 async def get_session_id(request: Request, response: Response) -> str:
     session_id = session_manager.get_session_id(request)
@@ -80,7 +84,7 @@ async def process_query(
         logger.error(f"Error processing query: {str(e)}")
         raise HTTPException(status_code=500, detail="Error processing query")
 
-@app.post("api//reset")
+@app.post("/api/reset")
 async def reset_session(
     response: Response,
     session_id: str = Depends(get_session_id)
@@ -96,6 +100,21 @@ async def reset_session(
     except Exception as e:
         logger.error(f"Error resetting session: {str(e)}")
         raise HTTPException(status_code=500, detail="Error resetting session")
+
+@app.get("/api/messages", response_model=MessagesResponse)
+async def get_messages(
+    session_id: str = Depends(get_session_id)
+):
+    try:
+        # Get agent for this session
+        agent = agent_factory.get_agent(session_id)
+        # Get message history
+        messages = agent.get_messages()
+        return MessagesResponse(messages=messages, session_id=session_id)
+    except Exception as e:
+        logger.error(f"Error retrieving messages: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error retrieving messages")
+
 
 @app.get("/api/health")
 async def health_check():
