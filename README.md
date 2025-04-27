@@ -19,7 +19,7 @@ This project is a chatbot that allows users to interact with the GitLab Handbook
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/gitlab-handbook-chatbot.git
+    https://github.com/Sidhartha-Perla/gitlab-chatbot.git
     cd gitlab-handbook-chatbot
     ```
 
