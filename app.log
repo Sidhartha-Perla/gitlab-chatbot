@@ -1,0 +1,142 @@
+2025-04-26 17:12:17,479 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:12:17,480 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:12:27,119 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:12:27,440 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:12:27,442 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:12:27,489 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:12:27,491 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:12:27,505 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 17:12:36,299 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:12:36,299 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:12:41,436 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:12:41,576 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:12:41,577 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:12:41,622 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:12:41,624 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:12:41,637 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 17:14:26,921 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:14:26,922 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:14:32,998 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:14:33,228 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:14:33,229 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:14:33,286 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:14:33,290 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:14:33,309 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 17:15:25,207 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:15:25,208 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:15:31,187 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:15:31,703 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:15:31,707 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:15:31,759 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:15:31,762 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:15:31,838 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 17:18:04,970 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:18:04,971 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:18:09,321 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:18:09,758 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:18:09,759 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:18:09,804 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:18:09,807 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:18:09,853 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 17:19:01,436 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 17:19:01,439 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 17:19:05,608 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:19:05,892 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 17:19:05,892 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 17:19:05,929 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 17:19:05,934 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 17:19:05,955 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 18:41:13,009 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 18:41:13,010 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 18:41:18,876 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:41:19,151 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 18:41:19,152 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:41:19,200 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 18:41:19,212 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 18:41:19,243 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 18:42:23,598 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 18:42:23,599 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 18:42:39,482 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:42:39,736 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 18:42:39,739 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:42:39,770 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 18:42:39,775 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 18:42:39,796 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 18:44:52,034 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 18:44:52,034 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 18:44:55,558 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:44:55,653 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 18:44:55,654 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 18:44:55,688 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 18:44:55,689 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 18:44:55,703 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 19:27:11,126 - app.main - ERROR - Error processing query: Agent.__init__() got an unexpected keyword argument 'google_api_key'
+2025-04-26 19:53:39,384 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-26 19:53:39,384 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-26 19:53:45,075 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 19:53:45,270 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-26 19:53:45,271 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-26 19:53:45,318 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-26 19:53:45,321 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-26 19:53:45,345 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-26 19:54:29,040 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-26 19:55:05,836 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-26 19:57:53,522 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-26 20:22:02,910 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 07:59:25,862 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-04-27 07:59:25,863 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-04-27 07:59:31,391 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-27 07:59:31,638 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-04-27 07:59:31,639 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-27 07:59:31,697 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-04-27 07:59:31,703 - httpx - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-04-27 07:59:31,741 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-04-27 08:07:51,297 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:08:14,928 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:08:53,499 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:35:56,430 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:36:03,231 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:38:00,104 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:46:49,239 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:48:59,236 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:49:25,664 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:49:46,973 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:49:56,623 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:52:11,558 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:52:50,817 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:53:06,612 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:53:15,808 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:56:59,545 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:04,849 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:17,852 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:22,145 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:26,175 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:30,031 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:57:30,451 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 29
+}
+].
+2025-04-27 08:57:32,987 - app.main - ERROR - Error processing query: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 27
+}
+]
+2025-04-27 08:58:11,056 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 08:59:35,403 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:01:41,692 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:02:04,522 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:14:54,331 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:15:38,108 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:16:38,370 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"
+2025-04-27 09:16:56,638 - httpx - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/39459a7a-86b2-44d5-af2e-db7df8634376/query "HTTP/1.1 200 OK"

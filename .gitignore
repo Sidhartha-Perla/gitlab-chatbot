@@ -1,5 +1,6 @@
-gitlab-ragbot-venv
+venv
 .DS_Store
+gitlab-rag-bot.code-workspace
 
 .env
 chroma_db
