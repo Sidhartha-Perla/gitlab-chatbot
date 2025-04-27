@@ -20,7 +20,7 @@ This project is a chatbot that allows users to interact with the GitLab Handbook
 
     ```bash
     https://github.com/Sidhartha-Perla/gitlab-chatbot.git
-    cd gitlab-handbook-chatbot
+    cd gitlab-chatbot
     ```
 
 2. **Create and activate a virtual environment**:
