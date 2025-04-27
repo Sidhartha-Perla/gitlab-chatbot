@@ -4,5 +4,6 @@ gitlab-rag-bot.code-workspace
 
 .env
 chroma_db
+app.log
 data-handling/test.py
 test.ipynb
