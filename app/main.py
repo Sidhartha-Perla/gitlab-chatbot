@@ -1,8 +1,11 @@
 import asyncio
+from pathlib import Path
 import uvicorn
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Response, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from starlette.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional, Dict
 import logging
@@ -14,22 +17,13 @@ from app.config import API_HOST, API_PORT
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='app.log',  # 👈 logs will be saved to app.log
-    filemode='a'          # (optional) 'a' for append, 'w' to overwrite
+    filename='app.log',
+    filemode='a'
 )
 logger = logging.getLogger(__name__)
 
 # Initialize app
 app = FastAPI(title="RAG Agent API", docs_url="/documentation", redoc_url="/redoc")
-
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Modify this in production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Initialize session manager and agent factory
 session_manager = SessionManager()
@@ -68,7 +62,7 @@ async def get_session_id(request: Request, response: Response) -> str:
     return session_id
 
 # Routes
-@app.post("/query", response_model=QueryResponse)
+@app.post("/api/query", response_model=QueryResponse)
 async def process_query(
     query_request: QueryRequest,
     response: Response,
@@ -86,7 +80,7 @@ async def process_query(
         logger.error(f"Error processing query: {str(e)}")
         raise HTTPException(status_code=500, detail="Error processing query")
 
-@app.post("/reset")
+@app.post("api//reset")
 async def reset_session(
     response: Response,
     session_id: str = Depends(get_session_id)
@@ -103,9 +97,18 @@ async def reset_session(
         logger.error(f"Error resetting session: {str(e)}")
         raise HTTPException(status_code=500, detail="Error resetting session")
 
-@app.get("/health")
+@app.get("/api/health")
 async def health_check():
     return {"status": "healthy"}
+
+@app.get("/")
+async def serve_index():
+    dist_path = Path(__file__).parent / "dist" / "index.html"
+    return FileResponse(dist_path)
+
+# Mount static files (assets)
+app.mount("/assets", StaticFiles(directory=Path(__file__).parent / "dist" / "assets"), name="assets")
+
 
 # Run server if executed directly
 if __name__ == "__main__":

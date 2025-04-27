@@ -216,6 +216,9 @@ class Agent:
         self.current_state["question"] = query
         self.current_state = self.graph.invoke(self.current_state)
         return self.current_state["answer"]
+    
+    def get_messages(self):
+        return self.current_state["chat_history"]
 
 """
 load_dotenv()
