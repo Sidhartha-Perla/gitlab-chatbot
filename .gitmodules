@@ -1,0 +1,3 @@
+[submodule "gitlab-chatbot-frontend"]
+	path = gitlab-chatbot-frontend
+	url = https://github.com/Sidhartha-Perla/gitlab-chatbot-frontend
