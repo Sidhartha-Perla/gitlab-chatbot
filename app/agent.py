@@ -71,7 +71,7 @@ class Agent:
                     
                     The latest interaction was:
                     User: {last_question}
-                    Assistant: {last_answer[:300]}{"..." if len(last_answer) > 300 else ""}
+                    Assistant: {last_answer}
                     """
                 }
             ]
