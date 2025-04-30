@@ -103,6 +103,6 @@ Example of link processing: (Already provided in the initial prompt)
 **Formatting rules:**
 -Use Markdown to structure your responses logically and enhance readability...
 -For example:
-    Use bullet points to list steps, features, or options. (See Example 2)
-    Employ bold text to highlight key terms or answers. (See Example 1)
-    Utilize tables for comparisons... (See Example 2)
+    Use bullet points to list steps, features, or options.
+    Employ bold text to highlight key terms or answers.
+    Utilize tables for comparisons.
